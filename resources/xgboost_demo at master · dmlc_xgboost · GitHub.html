@@ -1,0 +1,1540 @@
+<!DOCTYPE html>
+<!-- saved from url=(0093)https://github.com/dmlc/xgboost/tree/master/demo#machine-learning-challenge-winning-solutions -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+  <link rel="dns-prefetch" href="https://github.githubassets.com/">
+  <link rel="dns-prefetch" href="https://avatars0.githubusercontent.com/">
+  <link rel="dns-prefetch" href="https://avatars1.githubusercontent.com/">
+  <link rel="dns-prefetch" href="https://avatars2.githubusercontent.com/">
+  <link rel="dns-prefetch" href="https://avatars3.githubusercontent.com/">
+  <link rel="dns-prefetch" href="https://github-cloud.s3.amazonaws.com/">
+  <link rel="dns-prefetch" href="https://user-images.githubusercontent.com/">
+
+
+
+  <link crossorigin="anonymous" media="all" integrity="sha512-tNjDu1JoDfkjZINyRmi4t6GcEgOlz+NK5TFCJ5LFWA+ZwGV6uwzgPrP5qU+P9cAfHOca8JNF3Jl3IvkGnk+OPg==" rel="stylesheet" href="./xgboost_demo at master · dmlc_xgboost · GitHub_files/frameworks-next-b4d8c3bb52680df9236483724668b8b7.css">
+  <link crossorigin="anonymous" media="all" integrity="sha512-f+GsDXtuICdiOgFSvt5mnGyA4YCc74qCCbQ5JaqfoeFQaSk185WDPNKrK9Gt22ak0prFKy6EDwRxNj57wEsGxg==" rel="stylesheet" href="./xgboost_demo at master · dmlc_xgboost · GitHub_files/site-next-7fe1ac0d7b6e2027623a0152bede669c.css">
+    <link crossorigin="anonymous" media="all" integrity="sha512-qP/wSs83gQ2Jsrm94mfqU27K5YQ4xKUtKbbl+eMuqODXJdZ/C/K5YajXR6yHDWZ7O4E0Z3FMG8OAOvIJHKvtGA==" rel="stylesheet" href="./xgboost_demo at master · dmlc_xgboost · GitHub_files/github-next-a8fff04acf37810d89b2b9bde267ea53.css">
+    
+    
+    
+    
+
+
+  <meta name="viewport" content="width=device-width">
+  
+  <title>xgboost/demo at master · dmlc/xgboost · GitHub</title>
+    <meta name="description" content="Scalable, Portable and Distributed Gradient Boosting (GBDT, GBRT or GBM) Library,  for Python, R, Java, Scala, C++ and more. Runs on single machine, Hadoop, Spark, Flink and DataFlow - dmlc/xgboost">
+    <link rel="search" type="application/opensearchdescription+xml" href="https://github.com/opensearch.xml" title="GitHub">
+  <link rel="fluid-icon" href="https://github.com/fluidicon.png" title="GitHub">
+  <meta property="fb:app_id" content="1401488693436528">
+  <meta name="apple-itunes-app" content="app-id=1477376905">
+
+    <meta name="twitter:image:src" content="https://avatars2.githubusercontent.com/u/11508361?s=400&amp;v=4"><meta name="twitter:site" content="@github"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="dmlc/xgboost"><meta name="twitter:description" content="Scalable, Portable and Distributed Gradient Boosting (GBDT, GBRT or GBM) Library,  for Python, R, Java, Scala, C++ and more. Runs on single machine, Hadoop, Spark, Flink and DataFlow - dmlc/xgboost">
+    <meta property="og:image" content="https://avatars2.githubusercontent.com/u/11508361?s=400&amp;v=4"><meta property="og:site_name" content="GitHub"><meta property="og:type" content="object"><meta property="og:title" content="dmlc/xgboost"><meta property="og:url" content="https://github.com/dmlc/xgboost"><meta property="og:description" content="Scalable, Portable and Distributed Gradient Boosting (GBDT, GBRT or GBM) Library,  for Python, R, Java, Scala, C++ and more. Runs on single machine, Hadoop, Spark, Flink and DataFlow - dmlc/xgboost">
+
+  <link rel="assets" href="https://github.githubassets.com/">
+  
+
+  <meta name="request-id" content="D979:1103:932B3:E2E5B:5EFB8B8B" data-pjax-transient="true"><meta name="html-safe-nonce" content="709014e585d638ef5b6a7506ac10d14732ae722e" data-pjax-transient="true"><meta name="visitor-payload" content="eyJyZWZlcnJlciI6Imh0dHBzOi8vY2xhc3Nyb29tLnVkYWNpdHkuY29tL25hbm9kZWdyZWVzL25kMDA5dC9wYXJ0cy9iYjI2M2NmMi1hNGMzLTQ4ZjEtYjVlOS05NTc3NzFiNDc5MGMvbW9kdWxlcy9jZTk2NmM4Ni1hYzc3LTRlNTgtOTdlZS1lYjM5NmVlYWRjMDkvbGVzc29ucy9iOTIyYTIxMC03YWM4LTQ3ODYtYTM5ZC1hMDlkYWJhNWExNzAvY29uY2VwdHMvMDdhNDM2MWQtNGFhMy00OTljLWFlZWQtNzg0N2IwZTBiMGI3IiwicmVxdWVzdF9pZCI6IkQ5Nzk6MTEwMzo5MzJCMzpFMkU1Qjo1RUZCOEI4QiIsInZpc2l0b3JfaWQiOiI5MTUyNzAyMTMxMTYwMzU3ODc5IiwicmVnaW9uX2VkZ2UiOiJpYWQiLCJyZWdpb25fcmVuZGVyIjoiaWFkIn0=" data-pjax-transient="true"><meta name="visitor-hmac" content="6d93e22b62532cb4fb7cbf5fd7b1b9e4415217d08d7647849f2a67b5dbf238d9" data-pjax-transient="true">
+
+    <meta name="hovercard-subject-tag" content="repository:16587283" data-pjax-transient="">
+
+
+  <meta name="github-keyboard-shortcuts" content="repository,source-code" data-pjax-transient="true">
+
+  
+
+  <meta name="selected-link" value="repo_source" data-pjax-transient="">
+
+    <meta name="google-site-verification" content="c1kuD-K2HIVF635lypcsWPoD4kilo5-jA_wBFyT4uMY">
+  <meta name="google-site-verification" content="KT5gs8h0wvaagLKAVWq8bbeNwnZZK1r1XQysX3xurLU">
+  <meta name="google-site-verification" content="ZzhVyEFwb7w3e0-uOTltm8Jsck2F5StVihD0exw2fsA">
+  <meta name="google-site-verification" content="GXs5KoUUkNCoaAZn7wPN-t01Pywp9M3sEjnt_3_ZWPc">
+
+<meta name="octolytics-host" content="collector.githubapp.com"><meta name="octolytics-app-id" content="github"><meta name="octolytics-event-url" content="https://collector.githubapp.com/github-external/browser_event"><meta name="octolytics-dimension-ga_id" content="657392345.1590041586" class="js-octo-ga-id">
+<meta name="analytics-location" content="/&lt;user-name&gt;/&lt;repo-name&gt;/files/disambiguate" data-pjax-transient="true">
+
+
+
+    <meta name="google-analytics" content="UA-3769691-2">
+
+
+<meta class="js-ga-set" name="dimension10" content="Responsive" data-pjax-transient="">
+
+<meta class="js-ga-set" name="dimension1" content="Logged Out">
+
+
+
+  
+
+      <meta name="hostname" content="github.com">
+    <meta name="user-login" content="">
+
+
+      <meta name="expected-hostname" content="github.com">
+
+
+    <meta name="enabled-features" content="MARKETPLACE_PENDING_INSTALLATIONS,PRIMER_NEXT">
+
+  <meta http-equiv="x-pjax-version" content="c99b6a4dd4e6663e866052c39b702b73">
+  
+
+      <link href="https://github.com/dmlc/xgboost/commits/master.atom" rel="alternate" title="Recent Commits to xgboost:master" type="application/atom+xml">
+
+  <meta name="go-import" content="github.com/dmlc/xgboost git https://github.com/dmlc/xgboost.git">
+
+  <meta name="octolytics-dimension-user_id" content="11508361"><meta name="octolytics-dimension-user_login" content="dmlc"><meta name="octolytics-dimension-repository_id" content="16587283"><meta name="octolytics-dimension-repository_nwo" content="dmlc/xgboost"><meta name="octolytics-dimension-repository_public" content="true"><meta name="octolytics-dimension-repository_is_fork" content="false"><meta name="octolytics-dimension-repository_network_root_id" content="16587283"><meta name="octolytics-dimension-repository_network_root_nwo" content="dmlc/xgboost"><meta name="octolytics-dimension-repository_explore_github_marketplace_ci_cta_shown" content="false">
+
+
+    <link rel="canonical" href="https://github.com/dmlc/xgboost/tree/master/demo" data-pjax-transient="">
+
+
+  <meta name="browser-stats-url" content="https://api.github.com/_private/browser/stats">
+
+  <meta name="browser-errors-url" content="https://api.github.com/_private/browser/errors">
+
+  <link rel="mask-icon" href="https://github.githubassets.com/pinned-octocat.svg" color="#000000">
+  <link rel="alternate icon" class="js-site-favicon" type="image/png" href="https://github.githubassets.com/favicons/favicon.png">
+  <link rel="icon" class="js-site-favicon" type="image/svg+xml" href="https://github.githubassets.com/favicons/favicon.svg">
+
+<meta name="theme-color" content="#1e2327">
+
+
+  <link rel="manifest" href="https://github.com/manifest.json" crossorigin="use-credentials">
+
+  </head>
+
+  <body class="logged-out env-production page-responsive"><div id="StayFocusd-infobar" style="display: none; top: 0px;">
+    <img src="chrome-extension://laankejkbhbdhmipfmgcngdelahlfoji/common/img/eye_19x19_red.png">
+    <span id="StayFocusd-infobar-msg"></span>
+    <span id="StayFocusd-infobar-links">
+        <a id="StayFocusd-infobar-never-show">hide forever</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+        <a id="StayFocusd-infobar-hide">hide once</a>
+    </span>
+</div>
+    
+
+    <div class="position-relative js-header-wrapper ">
+      <a href="https://github.com/dmlc/xgboost/tree/master/demo#start-of-content" class="px-2 py-4 bg-blue text-white show-on-focus js-skip-to-content">Skip to content</a>
+      <span class="Progress progress-pjax-loader position-fixed width-full js-pjax-loader-bar">
+        <span class="progress-pjax-loader-bar top-0 left-0" style="width: 0%;"></span>
+      </span>
+
+      
+      
+
+
+
+          <header class="Header-old header-logged-out js-details-container Details position-relative f4 py-2" role="banner">
+  <div class="container-xl d-lg-flex flex-items-center p-responsive">
+    <div class="d-flex flex-justify-between flex-items-center">
+        <a class="mr-4" href="https://github.com/" aria-label="Homepage" data-ga-click="(Logged out) Header, go to homepage, icon:logo-wordmark">
+          <svg height="32" class="octicon octicon-mark-github text-white" viewBox="0 0 16 16" version="1.1" width="32" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+        </a>
+
+          <div class="d-lg-none css-truncate css-truncate-target width-fit p-2">
+            
+
+          </div>
+
+        <div class="d-flex flex-items-center">
+              <a href="https://github.com/join?ref_cta=Sign+up&amp;ref_loc=header+logged+out&amp;ref_page=%2F%3Cuser-name%3E%2F%3Crepo-name%3E%2Ffiles%2Fdisambiguate&amp;source=header-repo" class="d-inline-block d-lg-none f5 text-white no-underline border border-gray-dark rounded-2 px-2 py-1 mr-3 mr-sm-5" data-hydro-click="{&quot;event_type&quot;:&quot;authentication.click&quot;,&quot;payload&quot;:{&quot;location_in_page&quot;:&quot;site header&quot;,&quot;repository_id&quot;:null,&quot;auth_type&quot;:&quot;SIGN_UP&quot;,&quot;originating_url&quot;:&quot;https://github.com/dmlc/xgboost/tree/master/demo&quot;,&quot;user_id&quot;:null}}" data-hydro-click-hmac="e449816786dd06fb8390b02e9e4dd8fda9e2ec04cada4874948be2a7b8c6d9bb" data-ga-click="Sign up, click to sign up for account, ref_page:/&lt;user-name&gt;/&lt;repo-name&gt;/files/disambiguate;ref_cta:Sign up;ref_loc:header logged out">
+                Sign&nbsp;up
+              </a>
+
+          <button class="btn-link d-lg-none mt-1 js-details-target" type="button" aria-label="Toggle navigation" aria-expanded="false">
+            <svg height="24" class="octicon octicon-three-bars text-white" viewBox="0 0 16 16" version="1.1" width="24" aria-hidden="true"><path fill-rule="evenodd" d="M1 2.75A.75.75 0 011.75 2h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 2.75zm0 5A.75.75 0 011.75 7h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 7.75zM1.75 12a.75.75 0 100 1.5h12.5a.75.75 0 100-1.5H1.75z"></path></svg>
+          </button>
+        </div>
+    </div>
+
+    <div class="HeaderMenu HeaderMenu--logged-out position-fixed top-0 right-0 bottom-0 height-fit position-lg-relative d-lg-flex flex-justify-between flex-items-center flex-auto">
+      <div class="d-flex d-lg-none flex-justify-end border-bottom bg-gray-light p-3">
+        <button class="btn-link js-details-target" type="button" aria-label="Toggle navigation" aria-expanded="false">
+          <svg height="24" class="octicon octicon-x text-gray" viewBox="0 0 24 24" version="1.1" width="24" aria-hidden="true"><path fill-rule="evenodd" d="M5.72 5.72a.75.75 0 011.06 0L12 10.94l5.22-5.22a.75.75 0 111.06 1.06L13.06 12l5.22 5.22a.75.75 0 11-1.06 1.06L12 13.06l-5.22 5.22a.75.75 0 01-1.06-1.06L10.94 12 5.72 6.78a.75.75 0 010-1.06z"></path></svg>
+        </button>
+      </div>
+
+        <nav class="mt-0 px-3 px-lg-0 mb-5 mb-lg-0" aria-label="Global">
+          <ul class="d-lg-flex list-style-none">
+              <li class="d-block d-lg-flex flex-lg-nowrap flex-lg-items-center border-bottom border-lg-bottom-0 mr-0 mr-lg-3 edge-item-fix position-relative flex-wrap flex-justify-between d-flex flex-items-center ">
+                <details class="HeaderMenu-details details-overlay details-reset width-full">
+                  <summary class="HeaderMenu-summary HeaderMenu-link px-0 py-3 border-0 no-wrap d-block d-lg-inline-block">
+                    Why GitHub?
+                    <svg x="0px" y="0px" viewBox="0 0 14 8" xml:space="preserve" fill="none" class="icon-chevon-down-mktg position-absolute position-lg-relative">
+                      <path d="M1,1l6.2,6L13,1"></path>
+                    </svg>
+                  </summary>
+                  <div class="dropdown-menu flex-auto rounded-1 bg-white px-0 mt-0 pb-4 p-lg-4 position-relative position-lg-absolute left-0 left-lg-n4">
+                    <a href="https://github.com/features" class="py-2 lh-condensed-ultra d-block link-gray-dark no-underline h5 Bump-link--hover" data-ga-click="(Logged out) Header, go to Features">Features <span class="Bump-link-symbol float-right text-normal text-gray-light">→</span></a>
+                    <ul class="list-style-none f5 pb-3">
+                      <li class="edge-item-fix"><a href="https://github.com/features/code-review/" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Code review">Code review</a></li>
+                      <li class="edge-item-fix"><a href="https://github.com/features/project-management/" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Project management">Project management</a></li>
+                      <li class="edge-item-fix"><a href="https://github.com/features/integrations" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Integrations">Integrations</a></li>
+                      <li class="edge-item-fix"><a href="https://github.com/features/actions" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Actions">Actions</a></li>
+                      <li class="edge-item-fix"><a href="https://github.com/features/packages" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to GitHub Packages">Packages</a></li>
+                      <li class="edge-item-fix"><a href="https://github.com/features/security" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Security">Security</a></li>
+                      <li class="edge-item-fix"><a href="https://github.com/features#team-management" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Team management">Team management</a></li>
+                      <li class="edge-item-fix"><a href="https://github.com/features#hosting" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Code hosting">Hosting</a></li>
+                    </ul>
+
+                    <ul class="list-style-none mb-0 border-lg-top pt-lg-3">
+                      <li class="edge-item-fix"><a href="https://github.com/customer-stories" class="py-2 lh-condensed-ultra d-block no-underline link-gray-dark no-underline h5 Bump-link--hover" data-ga-click="(Logged out) Header, go to Customer stories">Customer stories <span class="Bump-link-symbol float-right text-normal text-gray-light">→</span></a></li>
+                      <li class="edge-item-fix"><a href="https://github.com/security" class="py-2 lh-condensed-ultra d-block no-underline link-gray-dark no-underline h5 Bump-link--hover" data-ga-click="(Logged out) Header, go to Security">Security <span class="Bump-link-symbol float-right text-normal text-gray-light">→</span></a></li>
+                    </ul>
+                  </div>
+                </details>
+              </li>
+              <li class="border-bottom border-lg-bottom-0 mr-0 mr-lg-3">
+                <a href="https://github.com/team" class="HeaderMenu-link no-underline py-3 d-block d-lg-inline-block" data-ga-click="(Logged out) Header, go to Team">Team</a>
+              </li>
+              <li class="border-bottom border-lg-bottom-0 mr-0 mr-lg-3">
+                <a href="https://github.com/enterprise" class="HeaderMenu-link no-underline py-3 d-block d-lg-inline-block" data-ga-click="(Logged out) Header, go to Enterprise">Enterprise</a>
+              </li>
+
+              <li class="d-block d-lg-flex flex-lg-nowrap flex-lg-items-center border-bottom border-lg-bottom-0 mr-0 mr-lg-3 edge-item-fix position-relative flex-wrap flex-justify-between d-flex flex-items-center ">
+                <details class="HeaderMenu-details details-overlay details-reset width-full">
+                  <summary class="HeaderMenu-summary HeaderMenu-link px-0 py-3 border-0 no-wrap d-block d-lg-inline-block">
+                    Explore
+                    <svg x="0px" y="0px" viewBox="0 0 14 8" xml:space="preserve" fill="none" class="icon-chevon-down-mktg position-absolute position-lg-relative">
+                      <path d="M1,1l6.2,6L13,1"></path>
+                    </svg>
+                  </summary>
+
+                  <div class="dropdown-menu flex-auto rounded-1 bg-white px-0 pt-2 pb-0 mt-0 pb-4 p-lg-4 position-relative position-lg-absolute left-0 left-lg-n4">
+                    <ul class="list-style-none mb-3">
+                      <li class="edge-item-fix"><a href="https://github.com/explore" class="py-2 lh-condensed-ultra d-block link-gray-dark no-underline h5 Bump-link--hover" data-ga-click="(Logged out) Header, go to Explore">Explore GitHub <span class="Bump-link-symbol float-right text-normal text-gray-light">→</span></a></li>
+                    </ul>
+
+                    <h4 class="text-gray-light text-normal text-mono f5 mb-2 border-lg-top pt-lg-3">Learn &amp; contribute</h4>
+                    <ul class="list-style-none mb-3">
+                      <li class="edge-item-fix"><a href="https://github.com/topics" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Topics">Topics</a></li>
+                        <li class="edge-item-fix"><a href="https://github.com/collections" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Collections">Collections</a></li>
+                      <li class="edge-item-fix"><a href="https://github.com/trending" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Trending">Trending</a></li>
+                      <li class="edge-item-fix"><a href="https://lab.github.com/" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Learning lab">Learning Lab</a></li>
+                      <li class="edge-item-fix"><a href="https://opensource.guide/" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Open source guides">Open source guides</a></li>
+                    </ul>
+
+                    <h4 class="text-gray-light text-normal text-mono f5 mb-2 border-lg-top pt-lg-3">Connect with others</h4>
+                    <ul class="list-style-none mb-0">
+                      <li class="edge-item-fix"><a href="https://github.com/events" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Events">Events</a></li>
+                      <li class="edge-item-fix"><a href="https://github.community/" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Community forum">Community forum</a></li>
+                      <li class="edge-item-fix"><a href="https://education.github.com/" class="py-2 pb-0 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to GitHub Education">GitHub Education</a></li>
+                    </ul>
+                  </div>
+                </details>
+              </li>
+
+              <li class="border-bottom border-lg-bottom-0 mr-0 mr-lg-3">
+                <a href="https://github.com/marketplace" class="HeaderMenu-link no-underline py-3 d-block d-lg-inline-block" data-ga-click="(Logged out) Header, go to Marketplace">Marketplace</a>
+              </li>
+
+              <li class="d-block d-lg-flex flex-lg-nowrap flex-lg-items-center border-bottom border-lg-bottom-0 mr-0 mr-lg-3 edge-item-fix position-relative flex-wrap flex-justify-between d-flex flex-items-center ">
+                <details class="HeaderMenu-details details-overlay details-reset width-full">
+                  <summary class="HeaderMenu-summary HeaderMenu-link px-0 py-3 border-0 no-wrap d-block d-lg-inline-block">
+                    Pricing
+                    <svg x="0px" y="0px" viewBox="0 0 14 8" xml:space="preserve" fill="none" class="icon-chevon-down-mktg position-absolute position-lg-relative">
+                       <path d="M1,1l6.2,6L13,1"></path>
+                    </svg>
+                  </summary>
+
+                  <div class="dropdown-menu flex-auto rounded-1 bg-white px-0 pt-2 pb-4 mt-0 p-lg-4 position-relative position-lg-absolute left-0 left-lg-n4">
+                    <a href="https://github.com/pricing" class="pb-2 lh-condensed-ultra d-block link-gray-dark no-underline h5 Bump-link--hover" data-ga-click="(Logged out) Header, go to Pricing">Plans <span class="Bump-link-symbol float-right text-normal text-gray-light">→</span></a>
+
+                    <ul class="list-style-none mb-3">
+                      <li class="edge-item-fix"><a href="https://github.com/pricing#feature-comparison" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Compare plans">Compare plans</a></li>
+                      <li class="edge-item-fix"><a href="https://enterprise.github.com/contact" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Contact Sales">Contact Sales</a></li>
+                    </ul>
+
+                    <ul class="list-style-none mb-0 border-lg-top pt-lg-3">
+                      <li class="edge-item-fix"><a href="https://github.com/nonprofit" class="py-2 lh-condensed-ultra d-block no-underline link-gray-dark no-underline h5 Bump-link--hover" data-ga-click="(Logged out) Header, go to Nonprofits">Nonprofit <span class="Bump-link-symbol float-right text-normal text-gray-light">→</span></a></li>
+                      <li class="edge-item-fix"><a href="https://education.github.com/" class="py-2 pb-0 lh-condensed-ultra d-block no-underline link-gray-dark no-underline h5 Bump-link--hover" data-ga-click="(Logged out) Header, go to Education">Education <span class="Bump-link-symbol float-right text-normal text-gray-light">→</span></a></li>
+                    </ul>
+                  </div>
+                </details>
+              </li>
+          </ul>
+        </nav>
+
+      <div class="d-lg-flex flex-items-center px-3 px-lg-0 text-center text-lg-left">
+          <div class="d-lg-flex mb-3 mb-lg-0">
+            <div class="header-search header-search-current js-header-search-current  flex-self-stretch flex-lg-self-auto mr-0 mr-lg-3 mb-3 mb-lg-0 scoped-search site-scoped-search js-site-search position-relative js-jump-to js-header-search-current-jump-to" role="combobox" aria-owns="jump-to-results" aria-label="Search or jump to" aria-haspopup="listbox" aria-expanded="false">
+  <div class="position-relative">
+    <!-- '"` --><!-- </textarea></xmp> --><form class="js-site-search-form" role="search" aria-label="Site" data-scope-type="Repository" data-scope-id="16587283" data-scoped-search-url="/dmlc/xgboost/search" data-unscoped-search-url="/search" action="https://github.com/dmlc/xgboost/search" accept-charset="UTF-8" method="get">
+      <label class="form-control input-sm header-search-wrapper p-0 header-search-wrapper-jump-to position-relative d-flex flex-justify-between flex-items-center js-chromeless-input-container">
+        <input type="text" class="form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus js-site-search-field is-clearable" data-hotkey="s,/" name="q" value="" placeholder="Search" data-unscoped-placeholder="Search GitHub" data-scoped-placeholder="Search" autocapitalize="off" aria-autocomplete="list" aria-controls="jump-to-results" aria-label="Search" data-jump-to-suggestions-path="/_graphql/GetSuggestedNavigationDestinations" spellcheck="false" autocomplete="off">
+          <input type="hidden" data-csrf="true" class="js-data-jump-to-suggestions-path-csrf" value="KTMNFjbbW9D+Nzuk44afIuQcs2cJJaAGSnaO3IdKm2ifEe2G1I20HdJyXhuiwMT/h31DZHez9Bihwek2lfNrCw==">
+          <input type="hidden" class="js-site-search-type-field" name="type">
+            <img src="./xgboost_demo at master · dmlc_xgboost · GitHub_files/search-key-slash.svg" alt="" class="mr-2 header-search-key-slash">
+
+            <div class="Box position-absolute overflow-hidden d-none jump-to-suggestions js-jump-to-suggestions-container">
+              
+<ul class="d-none js-jump-to-suggestions-template-container">
+  
+
+<li class="d-flex flex-justify-start flex-items-center p-0 f5 navigation-item js-navigation-item js-jump-to-suggestion" role="option">
+  <a tabindex="-1" class="no-underline d-flex flex-auto flex-items-center jump-to-suggestions-path js-jump-to-suggestion-path js-navigation-open p-2" href="https://github.com/dmlc/xgboost/tree/master/demo">
+    <div class="jump-to-octicon js-jump-to-octicon flex-shrink-0 mr-2 text-center d-none">
+      <svg height="16" width="16" class="octicon octicon-repo flex-shrink-0 js-jump-to-octicon-repo d-none" title="Repository" aria-label="Repository" viewBox="0 0 16 16" version="1.1" role="img"><path fill-rule="evenodd" d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z"></path></svg>
+      <svg height="16" width="16" class="octicon octicon-project flex-shrink-0 js-jump-to-octicon-project d-none" title="Project" aria-label="Project" viewBox="0 0 16 16" version="1.1" role="img"><path fill-rule="evenodd" d="M1.75 0A1.75 1.75 0 000 1.75v12.5C0 15.216.784 16 1.75 16h12.5A1.75 1.75 0 0016 14.25V1.75A1.75 1.75 0 0014.25 0H1.75zM1.5 1.75a.25.25 0 01.25-.25h12.5a.25.25 0 01.25.25v12.5a.25.25 0 01-.25.25H1.75a.25.25 0 01-.25-.25V1.75zM11.75 3a.75.75 0 00-.75.75v7.5a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75zm-8.25.75a.75.75 0 011.5 0v5.5a.75.75 0 01-1.5 0v-5.5zM8 3a.75.75 0 00-.75.75v3.5a.75.75 0 001.5 0v-3.5A.75.75 0 008 3z"></path></svg>
+      <svg height="16" width="16" class="octicon octicon-search flex-shrink-0 js-jump-to-octicon-search d-none" title="Search" aria-label="Search" viewBox="0 0 16 16" version="1.1" role="img"><path fill-rule="evenodd" d="M11.5 7a4.499 4.499 0 11-8.998 0A4.499 4.499 0 0111.5 7zm-.82 4.74a6 6 0 111.06-1.06l3.04 3.04a.75.75 0 11-1.06 1.06l-3.04-3.04z"></path></svg>
+    </div>
+
+    <img class="avatar mr-2 flex-shrink-0 js-jump-to-suggestion-avatar d-none" alt="" aria-label="Team" src="https://github.com/dmlc/xgboost/tree/master/demo" width="28" height="28">
+
+    <div class="jump-to-suggestion-name js-jump-to-suggestion-name flex-auto overflow-hidden text-left no-wrap css-truncate css-truncate-target">
+    </div>
+
+    <div class="border rounded-1 flex-shrink-0 bg-gray px-1 text-gray-light ml-1 f6 d-none js-jump-to-badge-search">
+      <span class="js-jump-to-badge-search-text-default d-none" aria-label="in this repository">
+        In this repository
+      </span>
+      <span class="js-jump-to-badge-search-text-global d-none" aria-label="in all of GitHub">
+        All GitHub
+      </span>
+      <span aria-hidden="true" class="d-inline-block ml-1 v-align-middle">↵</span>
+    </div>
+
+    <div aria-hidden="true" class="border rounded-1 flex-shrink-0 bg-gray px-1 text-gray-light ml-1 f6 d-none d-on-nav-focus js-jump-to-badge-jump">
+      Jump to
+      <span class="d-inline-block ml-1 v-align-middle">↵</span>
+    </div>
+  </a>
+</li>
+
+</ul>
+
+<ul class="d-none js-jump-to-no-results-template-container">
+  <li class="d-flex flex-justify-center flex-items-center f5 d-none js-jump-to-suggestion p-2">
+    <span class="text-gray">No suggested jump to results</span>
+  </li>
+</ul>
+
+<ul id="jump-to-results" role="listbox" class="p-0 m-0 js-navigation-container jump-to-suggestions-results-container js-jump-to-suggestions-results-container">
+  
+
+<li class="d-flex flex-justify-start flex-items-center p-0 f5 navigation-item js-navigation-item js-jump-to-scoped-search d-none" role="option">
+  <a tabindex="-1" class="no-underline d-flex flex-auto flex-items-center jump-to-suggestions-path js-jump-to-suggestion-path js-navigation-open p-2" href="https://github.com/dmlc/xgboost/tree/master/demo">
+    <div class="jump-to-octicon js-jump-to-octicon flex-shrink-0 mr-2 text-center d-none">
+      <svg height="16" width="16" class="octicon octicon-repo flex-shrink-0 js-jump-to-octicon-repo d-none" title="Repository" aria-label="Repository" viewBox="0 0 16 16" version="1.1" role="img"><path fill-rule="evenodd" d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z"></path></svg>
+      <svg height="16" width="16" class="octicon octicon-project flex-shrink-0 js-jump-to-octicon-project d-none" title="Project" aria-label="Project" viewBox="0 0 16 16" version="1.1" role="img"><path fill-rule="evenodd" d="M1.75 0A1.75 1.75 0 000 1.75v12.5C0 15.216.784 16 1.75 16h12.5A1.75 1.75 0 0016 14.25V1.75A1.75 1.75 0 0014.25 0H1.75zM1.5 1.75a.25.25 0 01.25-.25h12.5a.25.25 0 01.25.25v12.5a.25.25 0 01-.25.25H1.75a.25.25 0 01-.25-.25V1.75zM11.75 3a.75.75 0 00-.75.75v7.5a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75zm-8.25.75a.75.75 0 011.5 0v5.5a.75.75 0 01-1.5 0v-5.5zM8 3a.75.75 0 00-.75.75v3.5a.75.75 0 001.5 0v-3.5A.75.75 0 008 3z"></path></svg>
+      <svg height="16" width="16" class="octicon octicon-search flex-shrink-0 js-jump-to-octicon-search d-none" title="Search" aria-label="Search" viewBox="0 0 16 16" version="1.1" role="img"><path fill-rule="evenodd" d="M11.5 7a4.499 4.499 0 11-8.998 0A4.499 4.499 0 0111.5 7zm-.82 4.74a6 6 0 111.06-1.06l3.04 3.04a.75.75 0 11-1.06 1.06l-3.04-3.04z"></path></svg>
+    </div>
+
+    <img class="avatar mr-2 flex-shrink-0 js-jump-to-suggestion-avatar d-none" alt="" aria-label="Team" src="https://github.com/dmlc/xgboost/tree/master/demo" width="28" height="28">
+
+    <div class="jump-to-suggestion-name js-jump-to-suggestion-name flex-auto overflow-hidden text-left no-wrap css-truncate css-truncate-target">
+    </div>
+
+    <div class="border rounded-1 flex-shrink-0 bg-gray px-1 text-gray-light ml-1 f6 d-none js-jump-to-badge-search">
+      <span class="js-jump-to-badge-search-text-default d-none" aria-label="in this repository">
+        In this repository
+      </span>
+      <span class="js-jump-to-badge-search-text-global d-none" aria-label="in all of GitHub">
+        All GitHub
+      </span>
+      <span aria-hidden="true" class="d-inline-block ml-1 v-align-middle">↵</span>
+    </div>
+
+    <div aria-hidden="true" class="border rounded-1 flex-shrink-0 bg-gray px-1 text-gray-light ml-1 f6 d-none d-on-nav-focus js-jump-to-badge-jump">
+      Jump to
+      <span class="d-inline-block ml-1 v-align-middle">↵</span>
+    </div>
+  </a>
+</li>
+
+  
+
+<li class="d-flex flex-justify-start flex-items-center p-0 f5 navigation-item js-navigation-item js-jump-to-global-search d-none" role="option">
+  <a tabindex="-1" class="no-underline d-flex flex-auto flex-items-center jump-to-suggestions-path js-jump-to-suggestion-path js-navigation-open p-2" href="https://github.com/dmlc/xgboost/tree/master/demo">
+    <div class="jump-to-octicon js-jump-to-octicon flex-shrink-0 mr-2 text-center d-none">
+      <svg height="16" width="16" class="octicon octicon-repo flex-shrink-0 js-jump-to-octicon-repo d-none" title="Repository" aria-label="Repository" viewBox="0 0 16 16" version="1.1" role="img"><path fill-rule="evenodd" d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z"></path></svg>
+      <svg height="16" width="16" class="octicon octicon-project flex-shrink-0 js-jump-to-octicon-project d-none" title="Project" aria-label="Project" viewBox="0 0 16 16" version="1.1" role="img"><path fill-rule="evenodd" d="M1.75 0A1.75 1.75 0 000 1.75v12.5C0 15.216.784 16 1.75 16h12.5A1.75 1.75 0 0016 14.25V1.75A1.75 1.75 0 0014.25 0H1.75zM1.5 1.75a.25.25 0 01.25-.25h12.5a.25.25 0 01.25.25v12.5a.25.25 0 01-.25.25H1.75a.25.25 0 01-.25-.25V1.75zM11.75 3a.75.75 0 00-.75.75v7.5a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75zm-8.25.75a.75.75 0 011.5 0v5.5a.75.75 0 01-1.5 0v-5.5zM8 3a.75.75 0 00-.75.75v3.5a.75.75 0 001.5 0v-3.5A.75.75 0 008 3z"></path></svg>
+      <svg height="16" width="16" class="octicon octicon-search flex-shrink-0 js-jump-to-octicon-search d-none" title="Search" aria-label="Search" viewBox="0 0 16 16" version="1.1" role="img"><path fill-rule="evenodd" d="M11.5 7a4.499 4.499 0 11-8.998 0A4.499 4.499 0 0111.5 7zm-.82 4.74a6 6 0 111.06-1.06l3.04 3.04a.75.75 0 11-1.06 1.06l-3.04-3.04z"></path></svg>
+    </div>
+
+    <img class="avatar mr-2 flex-shrink-0 js-jump-to-suggestion-avatar d-none" alt="" aria-label="Team" src="https://github.com/dmlc/xgboost/tree/master/demo" width="28" height="28">
+
+    <div class="jump-to-suggestion-name js-jump-to-suggestion-name flex-auto overflow-hidden text-left no-wrap css-truncate css-truncate-target">
+    </div>
+
+    <div class="border rounded-1 flex-shrink-0 bg-gray px-1 text-gray-light ml-1 f6 d-none js-jump-to-badge-search">
+      <span class="js-jump-to-badge-search-text-default d-none" aria-label="in this repository">
+        In this repository
+      </span>
+      <span class="js-jump-to-badge-search-text-global d-none" aria-label="in all of GitHub">
+        All GitHub
+      </span>
+      <span aria-hidden="true" class="d-inline-block ml-1 v-align-middle">↵</span>
+    </div>
+
+    <div aria-hidden="true" class="border rounded-1 flex-shrink-0 bg-gray px-1 text-gray-light ml-1 f6 d-none d-on-nav-focus js-jump-to-badge-jump">
+      Jump to
+      <span class="d-inline-block ml-1 v-align-middle">↵</span>
+    </div>
+  </a>
+</li>
+
+
+</ul>
+
+            </div>
+      </label>
+</form>  </div>
+</div>
+
+          </div>
+
+        <a href="https://github.com/login?return_to=%2Fdmlc%2Fxgboost%2Ftree%2Fmaster%2Fdemo" class="HeaderMenu-link no-underline mr-3" data-hydro-click="{&quot;event_type&quot;:&quot;authentication.click&quot;,&quot;payload&quot;:{&quot;location_in_page&quot;:&quot;site header menu&quot;,&quot;repository_id&quot;:null,&quot;auth_type&quot;:&quot;SIGN_UP&quot;,&quot;originating_url&quot;:&quot;https://github.com/dmlc/xgboost/tree/master/demo&quot;,&quot;user_id&quot;:null}}" data-hydro-click-hmac="74e89311747a59311317bc59120b1f9d142f5490a91fa86c7122d50cc13ca8f3" data-ga-click="(Logged out) Header, clicked Sign in, text:sign-in">
+          Sign&nbsp;in
+        </a>
+            <a href="https://github.com/join?ref_cta=Sign+up&amp;ref_loc=header+logged+out&amp;ref_page=%2F%3Cuser-name%3E%2F%3Crepo-name%3E%2Ffiles%2Fdisambiguate&amp;source=header-repo&amp;source_repo=dmlc%2Fxgboost" class="HeaderMenu-link d-inline-block no-underline border border-gray-dark rounded-1 px-2 py-1" data-hydro-click="{&quot;event_type&quot;:&quot;authentication.click&quot;,&quot;payload&quot;:{&quot;location_in_page&quot;:&quot;site header menu&quot;,&quot;repository_id&quot;:null,&quot;auth_type&quot;:&quot;SIGN_UP&quot;,&quot;originating_url&quot;:&quot;https://github.com/dmlc/xgboost/tree/master/demo&quot;,&quot;user_id&quot;:null}}" data-hydro-click-hmac="74e89311747a59311317bc59120b1f9d142f5490a91fa86c7122d50cc13ca8f3" data-ga-click="Sign up, click to sign up for account, ref_page:/&lt;user-name&gt;/&lt;repo-name&gt;/files/disambiguate;ref_cta:Sign up;ref_loc:header logged out">
+              Sign&nbsp;up
+            </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+    </div>
+
+  <div id="start-of-content" class="show-on-focus"></div>
+
+
+
+
+    <div id="js-flash-container">
+
+
+  <template class="js-flash-template"></template>
+</div>
+
+
+  
+
+  <include-fragment class="js-notification-shelf-include-fragment" data-base-src="https://github.com/notifications/beta/shelf"></include-fragment>
+
+
+
+  <div class="application-main " data-commit-hovercards-enabled="" data-discussion-hovercards-enabled="" data-issue-and-pr-hovercards-enabled="">
+        <div itemscope="" itemtype="http://schema.org/SoftwareSourceCode" class="">
+    <main id="js-repo-pjax-container" data-pjax-container="">
+      
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <div class="pagehead repohead hx_repohead readability-menu bg-gray-light pb-0 pt-3 border-0 mb-5">
+
+    <div class="d-flex mb-3 px-3 px-md-4 px-lg-5">
+
+      <div class="flex-auto min-width-0 width-fit mr-3">
+        <h1 class="public  d-flex flex-wrap flex-items-center break-word float-none f3">
+  
+      <svg class="octicon octicon-repo" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z"></path></svg>
+  
+  <span class="author ml-2 flex-self-stretch" itemprop="author">
+    <a class="url fn" rel="author" data-hovercard-type="organization" data-hovercard-url="/orgs/dmlc/hovercard" href="https://github.com/dmlc">dmlc</a>
+  </span>
+  <span class="path-divider flex-self-stretch">/</span>
+  <strong itemprop="name" class="mr-2 flex-self-stretch">
+    <a data-pjax="#js-repo-pjax-container" href="https://github.com/dmlc/xgboost">xgboost</a>
+  </strong>
+  
+</h1>
+
+
+      </div>
+
+      <ul class="pagehead-actions flex-shrink-0 d-none d-md-inline" style="padding: 2px 0;">
+    <li>
+      <details id="funding-links-modal" class="details-reset details-overlay details-overlay-dark d-inline-block float-left">
+        <summary id="sponsor-button-repo" class="btn btn-sm" title="Sponsor dmlc/xgboost" data-ga-click="Repository, show sponsor modal, action:files#disambiguate; text:Sponsor" role="button">
+          <svg class="octicon octicon-heart text-pink" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4.25 2.5c-1.336 0-2.75 1.164-2.75 3 0 2.15 1.58 4.144 3.365 5.682A20.565 20.565 0 008 13.393a20.561 20.561 0 003.135-2.211C12.92 9.644 14.5 7.65 14.5 5.5c0-1.836-1.414-3-2.75-3-1.373 0-2.609.986-3.029 2.456a.75.75 0 01-1.442 0C6.859 3.486 5.623 2.5 4.25 2.5zM8 14.25l-.345.666-.002-.001-.006-.003-.018-.01a7.643 7.643 0 01-.31-.17 22.075 22.075 0 01-3.434-2.414C2.045 10.731 0 8.35 0 5.5 0 2.836 2.086 1 4.25 1 5.797 1 7.153 1.802 8 3.02 8.847 1.802 10.203 1 11.75 1 13.914 1 16 2.836 16 5.5c0 2.85-2.045 5.231-3.885 6.818a22.08 22.08 0 01-3.744 2.584l-.018.01-.006.003h-.002L8 14.25zm0 0l.345.666a.752.752 0 01-.69 0L8 14.25z"></path></svg>
+          Sponsor
+        </summary>
+        <details-dialog class="anim-fade-in fast Box Box--overlay d-flex flex-column" src="/dmlc/xgboost/funding_links?fragment=1" preload="" role="dialog" aria-modal="true">
+          <div class="Box-header">
+            <button class="Box-btn-octicon btn-octicon float-right" type="button" aria-label="Close dialog" data-close-dialog="">
+              <svg class="octicon octicon-x" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 011.06 0L8 6.94l3.22-3.22a.75.75 0 111.06 1.06L9.06 8l3.22 3.22a.75.75 0 11-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 01-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 010-1.06z"></path></svg>
+            </button>
+            <h3 class="Box-title">
+              Sponsor dmlc/xgboost
+            </h3>
+          </div>
+          <div class="overflow-auto">
+            <include-fragment>
+              <div class="octocat-spinner my-3" aria-label="Loading..."></div>
+            </include-fragment>
+          </div>
+        </details-dialog>
+      </details>
+    </li>
+
+  <li>
+      <a class="tooltipped tooltipped-s btn btn-sm btn-with-count" aria-label="You must be signed in to watch a repository" rel="nofollow" data-hydro-click="{&quot;event_type&quot;:&quot;authentication.click&quot;,&quot;payload&quot;:{&quot;location_in_page&quot;:&quot;notification subscription menu watch&quot;,&quot;repository_id&quot;:null,&quot;auth_type&quot;:&quot;LOG_IN&quot;,&quot;originating_url&quot;:&quot;https://github.com/dmlc/xgboost/tree/master/demo&quot;,&quot;user_id&quot;:null}}" data-hydro-click-hmac="3b2d533f128f120473f1d65473b68e84c6421dbd75f7623e7119933dae0eb152" href="https://github.com/login?return_to=%2Fdmlc%2Fxgboost">
+    <svg height="16" class="octicon octicon-eye" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"><path fill-rule="evenodd" d="M1.679 7.932c.412-.621 1.242-1.75 2.366-2.717C5.175 4.242 6.527 3.5 8 3.5c1.473 0 2.824.742 3.955 1.715 1.124.967 1.954 2.096 2.366 2.717a.119.119 0 010 .136c-.412.621-1.242 1.75-2.366 2.717C10.825 11.758 9.473 12.5 8 12.5c-1.473 0-2.824-.742-3.955-1.715C2.92 9.818 2.09 8.69 1.679 8.068a.119.119 0 010-.136zM8 2c-1.981 0-3.67.992-4.933 2.078C1.797 5.169.88 6.423.43 7.1a1.619 1.619 0 000 1.798c.45.678 1.367 1.932 2.637 3.024C4.329 13.008 6.019 14 8 14c1.981 0 3.67-.992 4.933-2.078 1.27-1.091 2.187-2.345 2.637-3.023a1.619 1.619 0 000-1.798c-.45-.678-1.367-1.932-2.637-3.023C11.671 2.992 9.981 2 8 2zm0 8a2 2 0 100-4 2 2 0 000 4z"></path></svg>
+
+    Watch
+</a>    <a class="social-count" href="https://github.com/dmlc/xgboost/watchers" aria-label="990 users are watching this repository">
+      990
+    </a>
+
+  </li>
+
+  <li>
+        <a class="btn btn-sm btn-with-count  tooltipped tooltipped-s" aria-label="You must be signed in to star a repository" rel="nofollow" data-hydro-click="{&quot;event_type&quot;:&quot;authentication.click&quot;,&quot;payload&quot;:{&quot;location_in_page&quot;:&quot;star button&quot;,&quot;repository_id&quot;:16587283,&quot;auth_type&quot;:&quot;LOG_IN&quot;,&quot;originating_url&quot;:&quot;https://github.com/dmlc/xgboost/tree/master/demo&quot;,&quot;user_id&quot;:null}}" data-hydro-click-hmac="09581fd7fbbe14ba3f99570860c51b062d5e9828e67f84a2e811f107b4214222" href="https://github.com/login?return_to=%2Fdmlc%2Fxgboost">
+      <svg height="16" class="octicon octicon-star v-align-text-bottom" vertical_align="text_bottom" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25zm0 2.445L6.615 5.5a.75.75 0 01-.564.41l-3.097.45 2.24 2.184a.75.75 0 01.216.664l-.528 3.084 2.769-1.456a.75.75 0 01.698 0l2.77 1.456-.53-3.084a.75.75 0 01.216-.664l2.24-2.183-3.096-.45a.75.75 0 01-.564-.41L8 2.694v.001z"></path></svg>
+
+      Star
+</a>
+    <a class="social-count js-social-count" href="https://github.com/dmlc/xgboost/stargazers" aria-label="19318 users starred this repository">
+      19.3k
+    </a>
+
+  </li>
+
+  <li>
+      <a class="btn btn-sm btn-with-count tooltipped tooltipped-s" aria-label="You must be signed in to fork a repository" rel="nofollow" data-hydro-click="{&quot;event_type&quot;:&quot;authentication.click&quot;,&quot;payload&quot;:{&quot;location_in_page&quot;:&quot;repo details fork button&quot;,&quot;repository_id&quot;:16587283,&quot;auth_type&quot;:&quot;LOG_IN&quot;,&quot;originating_url&quot;:&quot;https://github.com/dmlc/xgboost/tree/master/demo&quot;,&quot;user_id&quot;:null}}" data-hydro-click-hmac="1298e3f9f164fceadeb56a19ed95f2dc4fd38dfa304562abc39b008f9b6cb003" href="https://github.com/login?return_to=%2Fdmlc%2Fxgboost">
+        <svg class="octicon octicon-repo-forked" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M5 3.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm0 2.122a2.25 2.25 0 10-1.5 0v.878A2.25 2.25 0 005.75 8.5h1.5v2.128a2.251 2.251 0 101.5 0V8.5h1.5a2.25 2.25 0 002.25-2.25v-.878a2.25 2.25 0 10-1.5 0v.878a.75.75 0 01-.75.75h-4.5A.75.75 0 015 6.25v-.878zm3.75 7.378a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm3-8.75a.75.75 0 100-1.5.75.75 0 000 1.5z"></path></svg>
+        Fork
+</a>
+    <a href="https://github.com/dmlc/xgboost/network/members" class="social-count" aria-label="7581 users forked this repository">
+      7.6k
+    </a>
+  </li>
+</ul>
+
+    </div>
+    
+<nav class="UnderlineNav js-repo-nav js-sidenav-container-pjax js-responsive-underlinenav overflow-hidden px-3 px-md-4 px-lg-5 bg-gray-light" aria-label="Repository" data-pjax="#js-repo-pjax-container">
+  <ul class="UnderlineNav-body list-style-none ">
+          <li class="d-flex">
+        <a class="js-selected-navigation-item selected UnderlineNav-item hx_underlinenav-item no-wrap js-responsive-underlinenav-item" data-tab-item="code-tab" data-hotkey="g c" data-ga-click="Repository, Navigation click, Code tab" aria-current="page" data-selected-links="repo_source repo_downloads repo_commits repo_releases repo_tags repo_branches repo_packages repo_deployments /dmlc/xgboost" href="https://github.com/dmlc/xgboost">
+              <svg height="16" class="octicon octicon-code UnderlineNav-octicon d-none d-sm-inline" class_names="UnderlineNav-octicon" display="none inline" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"><path fill-rule="evenodd" d="M4.72 3.22a.75.75 0 011.06 1.06L2.06 8l3.72 3.72a.75.75 0 11-1.06 1.06L.47 8.53a.75.75 0 010-1.06l4.25-4.25zm6.56 0a.75.75 0 10-1.06 1.06L13.94 8l-3.72 3.72a.75.75 0 101.06 1.06l4.25-4.25a.75.75 0 000-1.06l-4.25-4.25z"></path></svg>
+
+            <span data-content="Code">Code</span>
+              
+</a>      </li>
+      <li class="d-flex">
+        <a class="js-selected-navigation-item UnderlineNav-item hx_underlinenav-item no-wrap js-responsive-underlinenav-item" data-tab-item="issues-tab" data-hotkey="g i" data-ga-click="Repository, Navigation click, Issues tab" data-selected-links="repo_issues repo_labels repo_milestones /dmlc/xgboost/issues" href="https://github.com/dmlc/xgboost/issues">
+              <svg height="16" class="octicon octicon-issue-opened UnderlineNav-octicon d-none d-sm-inline" class_names="UnderlineNav-octicon" display="none inline" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm9 3a1 1 0 11-2 0 1 1 0 012 0zm-.25-6.25a.75.75 0 00-1.5 0v3.5a.75.75 0 001.5 0v-3.5z"></path></svg>
+
+            <span data-content="Issues">Issues</span>
+              <span class="Counter ">226</span>
+
+
+</a>      </li>
+      <li class="d-flex">
+        <a class="js-selected-navigation-item UnderlineNav-item hx_underlinenav-item no-wrap js-responsive-underlinenav-item" data-tab-item="pull-requests-tab" data-hotkey="g p" data-ga-click="Repository, Navigation click, Pull requests tab" data-selected-links="repo_pulls checks /dmlc/xgboost/pulls" href="https://github.com/dmlc/xgboost/pulls">
+              <svg height="16" class="octicon octicon-git-pull-request UnderlineNav-octicon d-none d-sm-inline" class_names="UnderlineNav-octicon" display="none inline" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.177 3.073L9.573.677A.25.25 0 0110 .854v4.792a.25.25 0 01-.427.177L7.177 3.427a.25.25 0 010-.354zM3.75 2.5a.75.75 0 100 1.5.75.75 0 000-1.5zm-2.25.75a2.25 2.25 0 113 2.122v5.256a2.251 2.251 0 11-1.5 0V5.372A2.25 2.25 0 011.5 3.25zM11 2.5h-1V4h1a1 1 0 011 1v5.628a2.251 2.251 0 101.5 0V5A2.5 2.5 0 0011 2.5zm1 10.25a.75.75 0 111.5 0 .75.75 0 01-1.5 0zM3.75 12a.75.75 0 100 1.5.75.75 0 000-1.5z"></path></svg>
+
+            <span data-content="Pull requests">Pull requests</span>
+              <span class="Counter ">45</span>
+
+
+</a>      </li>
+      <li class="d-flex">
+        <a class="js-selected-navigation-item UnderlineNav-item hx_underlinenav-item no-wrap js-responsive-underlinenav-item" data-tab-item="actions-tab" data-hotkey="g w" data-ga-click="Repository, Navigation click, Actions tab" data-selected-links="repo_actions /dmlc/xgboost/actions" href="https://github.com/dmlc/xgboost/actions">
+              <svg height="16" class="octicon octicon-play UnderlineNav-octicon d-none d-sm-inline" class_names="UnderlineNav-octicon" display="none inline" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"><path fill-rule="evenodd" d="M1.5 8a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0zM8 0a8 8 0 100 16A8 8 0 008 0zM6.379 5.227A.25.25 0 006 5.442v5.117a.25.25 0 00.379.214l4.264-2.559a.25.25 0 000-.428L6.379 5.227z"></path></svg>
+
+            <span data-content="Actions">Actions</span>
+              
+</a>      </li>
+      <li class="d-flex">
+        <a class="js-selected-navigation-item UnderlineNav-item hx_underlinenav-item no-wrap js-responsive-underlinenav-item" data-tab-item="projects-tab" data-hotkey="g b" data-ga-click="Repository, Navigation click, Projects tab" data-selected-links="repo_projects new_repo_project repo_project /dmlc/xgboost/projects" href="https://github.com/dmlc/xgboost/projects">
+              <svg height="16" class="octicon octicon-project UnderlineNav-octicon d-none d-sm-inline" class_names="UnderlineNav-octicon" display="none inline" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"><path fill-rule="evenodd" d="M1.75 0A1.75 1.75 0 000 1.75v12.5C0 15.216.784 16 1.75 16h12.5A1.75 1.75 0 0016 14.25V1.75A1.75 1.75 0 0014.25 0H1.75zM1.5 1.75a.25.25 0 01.25-.25h12.5a.25.25 0 01.25.25v12.5a.25.25 0 01-.25.25H1.75a.25.25 0 01-.25-.25V1.75zM11.75 3a.75.75 0 00-.75.75v7.5a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75zm-8.25.75a.75.75 0 011.5 0v5.5a.75.75 0 01-1.5 0v-5.5zM8 3a.75.75 0 00-.75.75v3.5a.75.75 0 001.5 0v-3.5A.75.75 0 008 3z"></path></svg>
+
+            <span data-content="Projects">Projects</span>
+              <span class="Counter ">1</span>
+
+
+</a>      </li>
+      <li class="d-flex">
+        <a class="js-selected-navigation-item UnderlineNav-item hx_underlinenav-item no-wrap js-responsive-underlinenav-item" data-tab-item="wiki-tab" data-ga-click="Repository, Navigation click, Wikis tab" data-selected-links="repo_wiki /dmlc/xgboost/wiki" href="https://github.com/dmlc/xgboost/wiki">
+              <svg height="16" class="octicon octicon-book UnderlineNav-octicon d-none d-sm-inline" class_names="UnderlineNav-octicon" display="none inline" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"><path fill-rule="evenodd" d="M0 1.75A.75.75 0 01.75 1h4.253c1.227 0 2.317.59 3 1.501A3.744 3.744 0 0111.006 1h4.245a.75.75 0 01.75.75v10.5a.75.75 0 01-.75.75h-4.507a2.25 2.25 0 00-1.591.659l-.622.621a.75.75 0 01-1.06 0l-.622-.621A2.25 2.25 0 005.258 13H.75a.75.75 0 01-.75-.75V1.75zm8.755 3a2.25 2.25 0 012.25-2.25H14.5v9h-3.757c-.71 0-1.4.201-1.992.572l.004-7.322zm-1.504 7.324l.004-5.073-.002-2.253A2.25 2.25 0 005.003 2.5H1.5v9h3.757a3.75 3.75 0 011.994.574z"></path></svg>
+
+            <span data-content="Wiki">Wiki</span>
+              
+</a>      </li>
+      <li class="d-flex">
+        <a class="js-selected-navigation-item UnderlineNav-item hx_underlinenav-item no-wrap js-responsive-underlinenav-item" data-tab-item="security-tab" data-hotkey="g s" data-ga-click="Repository, Navigation click, Security tab" data-selected-links="security overview alerts policy token_scanning code_scanning /dmlc/xgboost/security" href="https://github.com/dmlc/xgboost/security">
+              <svg height="16" class="octicon octicon-shield UnderlineNav-octicon d-none d-sm-inline" class_names="UnderlineNav-octicon" display="none inline" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.467.133a1.75 1.75 0 011.066 0l5.25 1.68A1.75 1.75 0 0115 3.48V7c0 1.566-.32 3.182-1.303 4.682-.983 1.498-2.585 2.813-5.032 3.855a1.7 1.7 0 01-1.33 0c-2.447-1.042-4.049-2.357-5.032-3.855C1.32 10.182 1 8.566 1 7V3.48a1.75 1.75 0 011.217-1.667l5.25-1.68zm.61 1.429a.25.25 0 00-.153 0l-5.25 1.68a.25.25 0 00-.174.238V7c0 1.358.275 2.666 1.057 3.86.784 1.194 2.121 2.34 4.366 3.297a.2.2 0 00.154 0c2.245-.956 3.582-2.104 4.366-3.298C13.225 9.666 13.5 8.36 13.5 7V3.48a.25.25 0 00-.174-.237l-5.25-1.68zM9 10.5a1 1 0 11-2 0 1 1 0 012 0zm-.25-5.75a.75.75 0 10-1.5 0v3a.75.75 0 001.5 0v-3z"></path></svg>
+
+            <span data-content="Security">Security</span>
+              <span class="Counter js-security-tab-count " data-url="/dmlc/xgboost/security/overall-count" hidden="hidden">1</span>
+
+
+</a>      </li>
+      <li class="d-flex">
+        <a class="js-selected-navigation-item UnderlineNav-item hx_underlinenav-item no-wrap js-responsive-underlinenav-item" data-tab-item="insights-tab" data-ga-click="Repository, Navigation click, Insights tab" data-selected-links="repo_graphs repo_contributors dependency_graph dependabot_updates pulse people /dmlc/xgboost/pulse" href="https://github.com/dmlc/xgboost/pulse">
+              <svg height="16" class="octicon octicon-graph UnderlineNav-octicon d-none d-sm-inline" class_names="UnderlineNav-octicon" display="none inline" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"><path fill-rule="evenodd" d="M1.5 1.75a.75.75 0 00-1.5 0v12.5c0 .414.336.75.75.75h14.5a.75.75 0 000-1.5H1.5V1.75zm14.28 2.53a.75.75 0 00-1.06-1.06L10 7.94 7.53 5.47a.75.75 0 00-1.06 0L3.22 8.72a.75.75 0 001.06 1.06L7 7.06l2.47 2.47a.75.75 0 001.06 0l5.25-5.25z"></path></svg>
+
+            <span data-content="Insights">Insights</span>
+              
+</a>      </li>
+
+</ul>
+        <div class="position-absolute right-0 pr-3 pr-md-4 pr-lg-5 js-responsive-underlinenav-overflow" style="visibility:hidden;">
+      <details class="details-overlay details-reset position-relative">
+  <summary role="button" aria-haspopup="menu">
+              <div class="UnderlineNav-item mr-0 border-0">
+            <svg class="octicon octicon-kebab-horizontal" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M8 9a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM1.5 9a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm13 0a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"></path></svg>
+            <span class="sr-only">More</span>
+          </div>
+
+</summary>
+            <details-menu class="dropdown-menu dropdown-menu-sw " role="menu">
+  
+            <ul>
+                <li data-menu-item="code-tab" hidden="">
+                  <a role="menuitem" class="js-selected-navigation-item dropdown-item" data-selected-links=" /dmlc/xgboost" href="https://github.com/dmlc/xgboost">
+                    Code
+</a>                </li>
+                <li data-menu-item="issues-tab" hidden="">
+                  <a role="menuitem" class="js-selected-navigation-item dropdown-item" data-selected-links=" /dmlc/xgboost/issues" href="https://github.com/dmlc/xgboost/issues">
+                    Issues
+</a>                </li>
+                <li data-menu-item="pull-requests-tab" hidden="">
+                  <a role="menuitem" class="js-selected-navigation-item dropdown-item" data-selected-links=" /dmlc/xgboost/pulls" href="https://github.com/dmlc/xgboost/pulls">
+                    Pull requests
+</a>                </li>
+                <li data-menu-item="actions-tab" hidden="">
+                  <a role="menuitem" class="js-selected-navigation-item dropdown-item" data-selected-links=" /dmlc/xgboost/actions" href="https://github.com/dmlc/xgboost/actions">
+                    Actions
+</a>                </li>
+                <li data-menu-item="projects-tab" hidden="">
+                  <a role="menuitem" class="js-selected-navigation-item dropdown-item" data-selected-links=" /dmlc/xgboost/projects" href="https://github.com/dmlc/xgboost/projects">
+                    Projects
+</a>                </li>
+                <li data-menu-item="wiki-tab" hidden="">
+                  <a role="menuitem" class="js-selected-navigation-item dropdown-item" data-selected-links=" /dmlc/xgboost/wiki" href="https://github.com/dmlc/xgboost/wiki">
+                    Wiki
+</a>                </li>
+                <li data-menu-item="security-tab" hidden="">
+                  <a role="menuitem" class="js-selected-navigation-item dropdown-item" data-selected-links=" /dmlc/xgboost/security" href="https://github.com/dmlc/xgboost/security">
+                    Security
+</a>                </li>
+                <li data-menu-item="insights-tab" hidden="">
+                  <a role="menuitem" class="js-selected-navigation-item dropdown-item" data-selected-links=" /dmlc/xgboost/pulse" href="https://github.com/dmlc/xgboost/pulse">
+                    Insights
+</a>                </li>
+            </ul>
+
+</details-menu>
+
+</details>
+    </div>
+
+</nav>
+
+  </div>
+
+<div class="container-xl clearfix new-discussion-timeline  px-3 px-md-4 px-lg-5">
+  <div class="repository-content ">
+
+    
+    
+  <div class="file-navigation mb-3 d-flex flex-items-start">
+      
+<details class="details-reset details-overlay mr-0 mb-0 " id="branch-select-menu">
+  <summary class="btn css-truncate" data-hotkey="w" title="Switch branches or tags" aria-haspopup="menu" role="button">
+      <svg height="16" class="octicon octicon-git-branch text-gray" text="gray" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"><path fill-rule="evenodd" d="M11.75 2.5a.75.75 0 100 1.5.75.75 0 000-1.5zm-2.25.75a2.25 2.25 0 113 2.122V6A2.5 2.5 0 0110 8.5H6a1 1 0 00-1 1v1.128a2.251 2.251 0 11-1.5 0V5.372a2.25 2.25 0 111.5 0v1.836A2.492 2.492 0 016 7h4a1 1 0 001-1v-.628A2.25 2.25 0 019.5 3.25zM4.25 12a.75.75 0 100 1.5.75.75 0 000-1.5zM3.5 3.25a.75.75 0 111.5 0 .75.75 0 01-1.5 0z"></path></svg>
+
+    <i class="d-none d-lg-inline">Branch:</i>
+    <span class="css-truncate-target" data-menu-button="">master</span>
+    <span class="dropdown-caret"></span>
+  </summary>
+
+  <details-menu class="SelectMenu SelectMenu--hasFilter" src="/dmlc/xgboost/refs/master/demo?source_action=disambiguate&amp;source_controller=files" preload="" role="menu">
+    <div class="SelectMenu-modal">
+      <include-fragment class="SelectMenu-loading" aria-label="Menu is loading">
+        <svg class="octicon octicon-octoface anim-pulse" height="32" viewBox="0 0 16 16" version="1.1" width="32" aria-hidden="true"><path fill-rule="evenodd" d="M14.7 5.34c.13-.32.55-1.59-.13-3.31 0 0-1.05-.33-3.44 1.3-1-.28-2.07-.32-3.13-.32s-2.13.04-3.13.32c-2.39-1.64-3.44-1.3-3.44-1.3-.68 1.72-.26 2.99-.13 3.31C.49 6.21 0 7.33 0 8.69 0 13.84 3.33 15 7.98 15S16 13.84 16 8.69c0-1.36-.49-2.48-1.3-3.35zM8 14.02c-3.3 0-5.98-.15-5.98-3.35 0-.76.38-1.48 1.02-2.07 1.07-.98 2.9-.46 4.96-.46 2.07 0 3.88-.52 4.96.46.65.59 1.02 1.3 1.02 2.07 0 3.19-2.68 3.35-5.98 3.35zM5.49 9.01c-.66 0-1.2.8-1.2 1.78s.54 1.79 1.2 1.79c.66 0 1.2-.8 1.2-1.79s-.54-1.78-1.2-1.78zm5.02 0c-.66 0-1.2.79-1.2 1.78s.54 1.79 1.2 1.79c.66 0 1.2-.8 1.2-1.79s-.53-1.78-1.2-1.78z"></path></svg>
+      </include-fragment>
+    </div>
+  </details-menu>
+</details>
+
+
+      <div class="flex-1 mx-2 flex-self-center f4">
+        <div class="d-none d-sm-block">
+          <span class="js-repo-root text-bold"><span class="js-path-segment d-inline-block wb-break-all"><a data-pjax="true" href="https://github.com/dmlc/xgboost"><span>xgboost</span></a></span></span><span class="mx-1">/</span><strong class="final-path">demo</strong><span class="mx-1">/</span>
+        </div>
+      </div>
+
+      <div class="d-flex">
+        <a class="btn mr-2 d-none d-md-block" data-hydro-click="{&quot;event_type&quot;:&quot;repository.click&quot;,&quot;payload&quot;:{&quot;target&quot;:&quot;FIND_FILE_BUTTON&quot;,&quot;repository_id&quot;:16587283,&quot;originating_url&quot;:&quot;https://github.com/dmlc/xgboost/tree/master/demo&quot;,&quot;user_id&quot;:null}}" data-hydro-click-hmac="a73efff83296370a20deea270cc6dcc2e47935153f746be8f2ba0b0cb6932952" data-ga-click="Repository, find file, location:repo overview" data-hotkey="t" data-pjax="true" href="https://github.com/dmlc/xgboost/find/master">
+          Go to file
+</a>
+
+      </div>
+  </div>
+
+    <div class="f4 mt-3 mb-3 d-sm-none"><span class="js-repo-root text-bold"><span class="js-path-segment d-inline-block wb-break-all"><a data-pjax="true" href="https://github.com/dmlc/xgboost"><span>xgboost</span></a></span></span><span class="mx-1">/</span><strong class="final-path">demo</strong><span class="separator mx-1">/</span></div>
+
+  
+
+<div class="Box mb-3 ">
+  <div class="Box-header Box-header--blue position-relative" style="z-index:1;">
+    <h2 class="sr-only">Latest commit</h2>
+    <div class="js-details-container Details d-flex rounded-top-1 flex-items-center flex-wrap" data-issue-and-pr-hovercards-enabled="">
+        
+    <div class="flex-shrink-0 ml-n1 mr-n1 mt-n1 mb-n1 hx_avatar_stack_commit">
+      
+<div class="AvatarStack flex-self-start AvatarStack--two">
+  <div class="AvatarStack-body" aria-label="jameslamb and hcho3">
+        <a class="avatar avatar-user" data-skip-pjax="true" data-hovercard-type="user" data-hovercard-url="/users/jameslamb/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" style="width:24px;height:24px;" href="https://github.com/jameslamb">
+          <img height="24" width="24" alt="@jameslamb" src="./xgboost_demo at master · dmlc_xgboost · GitHub_files/7608904" class=" avatar-user">
+</a>        <a class="avatar avatar-user" data-skip-pjax="true" data-hovercard-type="user" data-hovercard-url="/users/hcho3/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" style="width:24px;height:24px;" href="https://github.com/hcho3">
+          <img height="24" width="24" alt="@hcho3" src="./xgboost_demo at master · dmlc_xgboost · GitHub_files/2532981" class=" avatar-user">
+</a>  </div>
+</div>
+
+    </div>
+    <div class="flex-1 d-flex flex-items-center ml-3 min-width-0">
+      <div class="css-truncate css-truncate-overflow text-gray">
+        
+      <a href="https://github.com/dmlc/xgboost/commits?author=jameslamb" class="commit-author tooltipped tooltipped-s user-mention" aria-label="View all commits by jameslamb">jameslamb</a>
+ and 
+      <a href="https://github.com/dmlc/xgboost/commits?author=hcho3" class="commit-author tooltipped tooltipped-s user-mention" aria-label="View all commits by hcho3">hcho3</a>
+
+
+  committed
+  <a href="https://github.com/dmlc/xgboost/commit/c35be9dc40459d33eba2b66e06811fcb46fb327e" class="link-gray text-mono d-none d-md-inline text-small">c35be9d</a>
+  <relative-time datetime="2020-06-11T10:08:02Z" class="no-wrap" title="Jun 11, 2020, 3:08 AM MST">19 days ago</relative-time>
+
+      </div>
+      <span class="hidden-text-expander d-inline-block ml-2">
+        <button type="button" class="ellipsis-expander js-details-target" aria-expanded="false">…</button>
+      </span>
+        <span class="ml-2">
+          
+  <details class="commit-build-statuses details-overlay details-reset js-dropdown-details" data-deferred-details-content-url="/_render_node/MDE3OlN0YXR1c0NoZWNrUm9sbHVwMTY1ODcyODM6YzM1YmU5ZGM0MDQ1OWQzM2ViYTJiNjZlMDY4MTFmY2I0NmZiMzI3ZQ==/statuses/combined_branch_status">
+    <summary class="text-green">
+      <svg aria-label="11 / 11 checks OK" class="octicon octicon-check" viewBox="0 0 16 16" version="1.1" width="16" height="16" role="img"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg>
+    </summary>
+    <div class="dropdown-menu dropdown-menu-e overflow-hidden">
+      <include-fragment class="m-4 d-flex flex-column flex-items-center">
+        <div class="anim-pulse"><svg height="32" class="octicon octicon-octoface" viewBox="0 0 16 16" version="1.1" width="32" aria-hidden="true"><path fill-rule="evenodd" d="M14.7 5.34c.13-.32.55-1.59-.13-3.31 0 0-1.05-.33-3.44 1.3-1-.28-2.07-.32-3.13-.32s-2.13.04-3.13.32c-2.39-1.64-3.44-1.3-3.44-1.3-.68 1.72-.26 2.99-.13 3.31C.49 6.21 0 7.33 0 8.69 0 13.84 3.33 15 7.98 15S16 13.84 16 8.69c0-1.36-.49-2.48-1.3-3.35zM8 14.02c-3.3 0-5.98-.15-5.98-3.35 0-.76.38-1.48 1.02-2.07 1.07-.98 2.9-.46 4.96-.46 2.07 0 3.88-.52 4.96.46.65.59 1.02 1.3 1.02 2.07 0 3.19-2.68 3.35-5.98 3.35zM5.49 9.01c-.66 0-1.2.8-1.2 1.78s.54 1.79 1.2 1.79c.66 0 1.2-.8 1.2-1.79s-.54-1.78-1.2-1.78zm5.02 0c-.66 0-1.2.79-1.2 1.78s.54 1.79 1.2 1.79c.66 0 1.2-.8 1.2-1.79s-.53-1.78-1.2-1.78z"></path></svg></div>
+        <div class="text-gray no-wrap">Loading status checks…</div>
+      </include-fragment>
+    </div>
+  </details>
+
+
+        </span>
+    </div>
+    <div class="pl-5 mt-2 flex-order-1 width-full Details-content--hidden">
+        <a data-pjax="true" title="[R] replace uses of T and F with TRUE and FALSE (#5778)
+
+* [R-package] replace uses of T and F with TRUE and FALSE
+
+* enable linting
+
+* Remove skip
+
+Co-authored-by: Philip Hyunsu Cho &lt;chohyu01@cs.washington.edu&gt;" class="link-gray-dark" href="https://github.com/dmlc/xgboost/commit/c35be9dc40459d33eba2b66e06811fcb46fb327e">[R] replace uses of T and F with TRUE and FALSE (</a><a class="issue-link js-issue-link" data-error-text="Failed to load title" data-id="636659109" data-permission-text="Title is private" data-url="https://github.com/dmlc/xgboost/issues/5778" data-hovercard-type="pull_request" data-hovercard-url="/dmlc/xgboost/pull/5778/hovercard" href="https://github.com/dmlc/xgboost/pull/5778">#5778</a><a data-pjax="true" title="[R] replace uses of T and F with TRUE and FALSE (#5778)
+
+* [R-package] replace uses of T and F with TRUE and FALSE
+
+* enable linting
+
+* Remove skip
+
+Co-authored-by: Philip Hyunsu Cho &lt;chohyu01@cs.washington.edu&gt;" class="link-gray-dark" href="https://github.com/dmlc/xgboost/commit/c35be9dc40459d33eba2b66e06811fcb46fb327e">)</a>
+
+        <pre class="mt-1 text-mono text-gray text-small ws-pre-wrap">* [R-package] replace uses of T and F with TRUE and FALSE
+
+* enable linting
+
+* Remove skip
+
+Co-authored-by: Philip Hyunsu Cho &lt;chohyu01@cs.washington.edu&gt;</pre>
+    </div>
+        <div class="flex-shrink-0">
+          <h2 class="sr-only">Git stats</h2>
+          <ul class="list-style-none d-flex">
+            <li class="ml-3">
+              <a data-pjax="" href="https://github.com/dmlc/xgboost/commits/master/demo" class="link-gray-dark no-underline">
+                <svg height="16" class="octicon octicon-history text-gray" text="gray" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"><path fill-rule="evenodd" d="M1.643 3.143L.427 1.927A.25.25 0 000 2.104V5.75c0 .138.112.25.25.25h3.646a.25.25 0 00.177-.427L2.715 4.215a6.5 6.5 0 11-1.18 4.458.75.75 0 10-1.493.154 8.001 8.001 0 101.6-5.684zM7.75 4a.75.75 0 01.75.75v2.992l2.028.812a.75.75 0 01-.557 1.392l-2.5-1A.75.75 0 017 8.25v-3.5A.75.75 0 017.75 4z"></path></svg>
+
+                <span class="d-none d-sm-inline">
+                    <strong>History</strong>
+                </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+    </div>
+  </div>
+  <h2 id="files" class="sr-only">Files</h2>
+  
+
+
+    <a class="d-none js-permalink-shortcut" data-hotkey="y" href="https://github.com/dmlc/xgboost/tree/90a9c6887419a61222a21a6056ed012e7704783b/demo">Permalink</a>
+
+    <div class="flash flash-full flash-error include-fragment-error">
+      <svg class="octicon octicon-alert mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.22 1.754a.25.25 0 00-.44 0L1.698 13.132a.25.25 0 00.22.368h12.164a.25.25 0 00.22-.368L8.22 1.754zm-1.763-.707c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0114.082 15H1.918a1.75 1.75 0 01-1.543-2.575L6.457 1.047zM9 11a1 1 0 11-2 0 1 1 0 012 0zm-.25-5.25a.75.75 0 00-1.5 0v2.5a.75.75 0 001.5 0v-2.5z"></path></svg> Failed to load latest commit information.
+    </div>
+    <div class="js-details-container Details">
+      <div role="grid" aria-labelledby="files" class="Details-content--hidden-not-important js-navigation-container js-active-navigation-container d-block" data-pjax="">
+        <div class="sr-only" role="row">
+          <div role="columnheader">Type</div>
+          <div role="columnheader">Name</div>
+          <div role="columnheader" class="d-none d-md-block">Latest commit message</div>
+          <div role="columnheader">Commit time</div>
+        </div>
+          <div role="row" class="Box-row Box-row--focus-gray p-0 d-flex js-navigation-item">
+            <div role="rowheader" class="flex-auto min-width-0 col-md-2">
+              <a rel="nofollow" title="Go to parent directory" class="js-navigation-open d-block py-2 px-3" href="https://github.com/dmlc/xgboost">
+                <span class="text-bold text-center d-inline-block" style="min-width: 16px;">. .</span>
+</a>            </div>
+            <div role="gridcell" class="d-none d-md-block"></div>
+            <div role="gridcell"></div>
+          </div>
+
+          <div role="row" class="Box-row Box-row--focus-gray py-2 d-flex position-relative js-navigation-item navigation-focus">
+            <div role="gridcell" class="mr-3 flex-shrink-0" style="width: 16px;">
+              <svg height="16" class="octicon octicon-file-directory color-blue-3" color="blue-3" aria-label="Directory" viewBox="0 0 16 16" version="1.1" width="16" role="img"><path fill-rule="evenodd" d="M1.75 1A1.75 1.75 0 000 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0016 13.25v-8.5A1.75 1.75 0 0014.25 3h-6.5a.25.25 0 01-.2-.1l-.9-1.2c-.33-.44-.85-.7-1.4-.7h-3.5z"></path></svg>
+
+
+            </div>
+
+            <div role="rowheader" class="flex-auto min-width-0 col-md-2 mr-3">
+              <span class="css-truncate css-truncate-target d-block width-fit"><a class="js-navigation-open link-gray-dark" title="aft_survival" id="7e23302505315746aa103a9baf118054-242cda1c2e981946bffcf105c02f73918eee811c" href="https://github.com/dmlc/xgboost/tree/master/demo/aft_survival">aft_survival</a></span>
+            </div>
+
+            <div role="gridcell" class="flex-auto min-width-0 d-none d-md-block col-5 mr-3 commit-message">
+                <span class="css-truncate css-truncate-target d-block width-fit">
+                      <a data-pjax="true" title="Update Python demos with tests. (#5651)
+
+* Remove GPU memory usage demo.
+* Add tests for demos.
+* Remove `silent`.
+* Remove shebang as it&#39;s not portable." class="link-gray" href="https://github.com/dmlc/xgboost/commit/2c1a439869506532f48d387e7d39beeab358c76b">Update Python demos with tests. (</a><a class="issue-link js-issue-link" data-error-text="Failed to load title" data-id="615367126" data-permission-text="Title is private" data-url="https://github.com/dmlc/xgboost/issues/5651" data-hovercard-type="pull_request" data-hovercard-url="/dmlc/xgboost/pull/5651/hovercard" href="https://github.com/dmlc/xgboost/pull/5651">#5651</a><a data-pjax="true" title="Update Python demos with tests. (#5651)
+
+* Remove GPU memory usage demo.
+* Add tests for demos.
+* Remove `silent`.
+* Remove shebang as it&#39;s not portable." class="link-gray" href="https://github.com/dmlc/xgboost/commit/2c1a439869506532f48d387e7d39beeab358c76b">)</a>
+                </span>
+            </div>
+
+            <div role="gridcell" class="text-gray-light text-right" style="width:100px;">
+                <time-ago datetime="2020-05-12T04:04:42Z" class="no-wrap" title="May 11, 2020, 9:04 PM MST">2 months ago</time-ago>
+            </div>
+
+          </div>
+          <div role="row" class="Box-row Box-row--focus-gray py-2 d-flex position-relative js-navigation-item ">
+            <div role="gridcell" class="mr-3 flex-shrink-0" style="width: 16px;">
+              <svg height="16" class="octicon octicon-file-directory color-blue-3" color="blue-3" aria-label="Directory" viewBox="0 0 16 16" version="1.1" width="16" role="img"><path fill-rule="evenodd" d="M1.75 1A1.75 1.75 0 000 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0016 13.25v-8.5A1.75 1.75 0 0014.25 3h-6.5a.25.25 0 01-.2-.1l-.9-1.2c-.33-.44-.85-.7-1.4-.7h-3.5z"></path></svg>
+
+
+            </div>
+
+            <div role="rowheader" class="flex-auto min-width-0 col-md-2 mr-3">
+              <span class="css-truncate css-truncate-target d-block width-fit"><a class="js-navigation-open link-gray-dark" title="binary_classification" id="6d3f2884a35dfbdeae1f44323ce88b52-18ec693c7dc8b41d94fc0d2dc4897de824d53093" href="https://github.com/dmlc/xgboost/tree/master/demo/binary_classification">binary_classification</a></span>
+            </div>
+
+            <div role="gridcell" class="flex-auto min-width-0 d-none d-md-block col-5 mr-3 commit-message">
+                <span class="css-truncate css-truncate-target d-block width-fit">
+                      <a data-pjax="true" title="Fix typo (#5399)" class="link-gray" href="https://github.com/dmlc/xgboost/commit/a931589c9657e8d79339256383ea6dc915064f56">Fix typo (</a><a class="issue-link js-issue-link" data-error-text="Failed to load title" data-id="577783913" data-permission-text="Title is private" data-url="https://github.com/dmlc/xgboost/issues/5399" data-hovercard-type="pull_request" data-hovercard-url="/dmlc/xgboost/pull/5399/hovercard" href="https://github.com/dmlc/xgboost/pull/5399">#5399</a><a data-pjax="true" title="Fix typo (#5399)" class="link-gray" href="https://github.com/dmlc/xgboost/commit/a931589c9657e8d79339256383ea6dc915064f56">)</a>
+                </span>
+            </div>
+
+            <div role="gridcell" class="text-gray-light text-right" style="width:100px;">
+                <time-ago datetime="2020-03-09T11:41:39Z" class="no-wrap" title="Mar 9, 2020, 4:41 AM MST">4 months ago</time-ago>
+            </div>
+
+          </div>
+          <div role="row" class="Box-row Box-row--focus-gray py-2 d-flex position-relative js-navigation-item ">
+            <div role="gridcell" class="mr-3 flex-shrink-0" style="width: 16px;">
+              <svg height="16" class="octicon octicon-file-directory color-blue-3" color="blue-3" aria-label="Directory" viewBox="0 0 16 16" version="1.1" width="16" role="img"><path fill-rule="evenodd" d="M1.75 1A1.75 1.75 0 000 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0016 13.25v-8.5A1.75 1.75 0 0014.25 3h-6.5a.25.25 0 01-.2-.1l-.9-1.2c-.33-.44-.85-.7-1.4-.7h-3.5z"></path></svg>
+
+
+            </div>
+
+            <div role="rowheader" class="flex-auto min-width-0 col-md-2 mr-3">
+              <span class="css-truncate css-truncate-target d-block width-fit"><a class="js-navigation-open link-gray-dark" title="c-api" id="1a76da907558be58edf3dd36c156e5c6-285044e840982c35778b737376c43f9059fb7705" href="https://github.com/dmlc/xgboost/tree/master/demo/c-api">c-api</a></span>
+            </div>
+
+            <div role="gridcell" class="flex-auto min-width-0 d-none d-md-block col-5 mr-3 commit-message">
+                <span class="css-truncate css-truncate-target d-block width-fit">
+                      <a data-pjax="true" title="Update Python demos with tests. (#5651)
+
+* Remove GPU memory usage demo.
+* Add tests for demos.
+* Remove `silent`.
+* Remove shebang as it&#39;s not portable." class="link-gray" href="https://github.com/dmlc/xgboost/commit/2c1a439869506532f48d387e7d39beeab358c76b">Update Python demos with tests. (</a><a class="issue-link js-issue-link" data-error-text="Failed to load title" data-id="615367126" data-permission-text="Title is private" data-url="https://github.com/dmlc/xgboost/issues/5651" data-hovercard-type="pull_request" data-hovercard-url="/dmlc/xgboost/pull/5651/hovercard" href="https://github.com/dmlc/xgboost/pull/5651">#5651</a><a data-pjax="true" title="Update Python demos with tests. (#5651)
+
+* Remove GPU memory usage demo.
+* Add tests for demos.
+* Remove `silent`.
+* Remove shebang as it&#39;s not portable." class="link-gray" href="https://github.com/dmlc/xgboost/commit/2c1a439869506532f48d387e7d39beeab358c76b">)</a>
+                </span>
+            </div>
+
+            <div role="gridcell" class="text-gray-light text-right" style="width:100px;">
+                <time-ago datetime="2020-05-12T04:04:42Z" class="no-wrap" title="May 11, 2020, 9:04 PM MST">2 months ago</time-ago>
+            </div>
+
+          </div>
+          <div role="row" class="Box-row Box-row--focus-gray py-2 d-flex position-relative js-navigation-item ">
+            <div role="gridcell" class="mr-3 flex-shrink-0" style="width: 16px;">
+              <svg height="16" class="octicon octicon-file-directory color-blue-3" color="blue-3" aria-label="Directory" viewBox="0 0 16 16" version="1.1" width="16" role="img"><path fill-rule="evenodd" d="M1.75 1A1.75 1.75 0 000 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0016 13.25v-8.5A1.75 1.75 0 0014.25 3h-6.5a.25.25 0 01-.2-.1l-.9-1.2c-.33-.44-.85-.7-1.4-.7h-3.5z"></path></svg>
+
+
+            </div>
+
+            <div role="rowheader" class="flex-auto min-width-0 col-md-2 mr-3">
+              <span class="css-truncate css-truncate-target d-block width-fit"><a class="js-navigation-open link-gray-dark" title="dask" id="b2015e522a418c3350d3af1da8790aeb-c40c75630adbce6d1c1fde4597221519ba6aaeed" href="https://github.com/dmlc/xgboost/tree/master/demo/dask">dask</a></span>
+            </div>
+
+            <div role="gridcell" class="flex-auto min-width-0 d-none d-md-block col-5 mr-3 commit-message">
+                <span class="css-truncate css-truncate-target d-block width-fit">
+                      <a data-pjax="true" title="[dask] Honor `nthreads` from dask worker. (#5414)" class="link-gray" href="https://github.com/dmlc/xgboost/commit/761a5dbdfc3218bbb672045abd7ad5de73f36906">[dask] Honor `nthreads` from dask worker. (</a><a class="issue-link js-issue-link" data-error-text="Failed to load title" data-id="581041910" data-permission-text="Title is private" data-url="https://github.com/dmlc/xgboost/issues/5414" data-hovercard-type="pull_request" data-hovercard-url="/dmlc/xgboost/pull/5414/hovercard" href="https://github.com/dmlc/xgboost/pull/5414">#5414</a><a data-pjax="true" title="[dask] Honor `nthreads` from dask worker. (#5414)" class="link-gray" href="https://github.com/dmlc/xgboost/commit/761a5dbdfc3218bbb672045abd7ad5de73f36906">)</a>
+                </span>
+            </div>
+
+            <div role="gridcell" class="text-gray-light text-right" style="width:100px;">
+                <time-ago datetime="2020-03-15T20:51:24Z" class="no-wrap" title="Mar 15, 2020, 1:51 PM MST">4 months ago</time-ago>
+            </div>
+
+          </div>
+          <div role="row" class="Box-row Box-row--focus-gray py-2 d-flex position-relative js-navigation-item">
+            <div role="gridcell" class="mr-3 flex-shrink-0" style="width: 16px;">
+              <svg height="16" class="octicon octicon-file-directory color-blue-3" color="blue-3" aria-label="Directory" viewBox="0 0 16 16" version="1.1" width="16" role="img"><path fill-rule="evenodd" d="M1.75 1A1.75 1.75 0 000 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0016 13.25v-8.5A1.75 1.75 0 0014.25 3h-6.5a.25.25 0 01-.2-.1l-.9-1.2c-.33-.44-.85-.7-1.4-.7h-3.5z"></path></svg>
+
+
+            </div>
+
+            <div role="rowheader" class="flex-auto min-width-0 col-md-2 mr-3">
+              <span class="css-truncate css-truncate-target d-block width-fit"><a class="js-navigation-open link-gray-dark" title="data" id="8d777f385d3dfec8815d20f7496026dc-0c7454e122ea24d92d1eb3aaa2c148b7ab08ab51" href="https://github.com/dmlc/xgboost/tree/master/demo/data">data</a></span>
+            </div>
+
+            <div role="gridcell" class="flex-auto min-width-0 d-none d-md-block col-5 mr-3 commit-message">
+                <span class="css-truncate css-truncate-target d-block width-fit">
+                      <a data-pjax="true" title="[R] replace uses of T and F with TRUE and FALSE (#5778)
+
+* [R-package] replace uses of T and F with TRUE and FALSE
+
+* enable linting
+
+* Remove skip
+
+Co-authored-by: Philip Hyunsu Cho &lt;chohyu01@cs.washington.edu&gt;" class="link-gray" href="https://github.com/dmlc/xgboost/commit/c35be9dc40459d33eba2b66e06811fcb46fb327e">[R] replace uses of T and F with TRUE and FALSE (</a><a class="issue-link js-issue-link" data-error-text="Failed to load title" data-id="636659109" data-permission-text="Title is private" data-url="https://github.com/dmlc/xgboost/issues/5778" data-hovercard-type="pull_request" data-hovercard-url="/dmlc/xgboost/pull/5778/hovercard" href="https://github.com/dmlc/xgboost/pull/5778">#5778</a><a data-pjax="true" title="[R] replace uses of T and F with TRUE and FALSE (#5778)
+
+* [R-package] replace uses of T and F with TRUE and FALSE
+
+* enable linting
+
+* Remove skip
+
+Co-authored-by: Philip Hyunsu Cho &lt;chohyu01@cs.washington.edu&gt;" class="link-gray" href="https://github.com/dmlc/xgboost/commit/c35be9dc40459d33eba2b66e06811fcb46fb327e">)</a>
+                </span>
+            </div>
+
+            <div role="gridcell" class="text-gray-light text-right" style="width:100px;">
+                <time-ago datetime="2020-06-11T10:08:02Z" class="no-wrap" title="Jun 11, 2020, 3:08 AM MST">19 days ago</time-ago>
+            </div>
+
+          </div>
+          <div role="row" class="Box-row Box-row--focus-gray py-2 d-flex position-relative js-navigation-item">
+            <div role="gridcell" class="mr-3 flex-shrink-0" style="width: 16px;">
+              <svg height="16" class="octicon octicon-file-directory color-blue-3" color="blue-3" aria-label="Directory" viewBox="0 0 16 16" version="1.1" width="16" role="img"><path fill-rule="evenodd" d="M1.75 1A1.75 1.75 0 000 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0016 13.25v-8.5A1.75 1.75 0 0014.25 3h-6.5a.25.25 0 01-.2-.1l-.9-1.2c-.33-.44-.85-.7-1.4-.7h-3.5z"></path></svg>
+
+
+            </div>
+
+            <div role="rowheader" class="flex-auto min-width-0 col-md-2 mr-3">
+              <span class="css-truncate css-truncate-target d-block width-fit"><a class="js-navigation-open link-gray-dark" title="distributed-training" id="fb851d754f9b1577c692c239f7f5f210-adb87b3c39b292c9ba6e0c661256a377e40eb9e5" href="https://github.com/dmlc/xgboost/tree/master/demo/distributed-training">distributed-training</a></span>
+            </div>
+
+            <div role="gridcell" class="flex-auto min-width-0 d-none d-md-block col-5 mr-3 commit-message">
+                <span class="css-truncate css-truncate-target d-block width-fit">
+                      <a data-pjax="true" title="Remove makefiles. (#5513)" class="link-gray" href="https://github.com/dmlc/xgboost/commit/a3db79df22ace13b26e8514ce018cb9c1ad33214">Remove makefiles. (</a><a class="issue-link js-issue-link" data-error-text="Failed to load title" data-id="598176078" data-permission-text="Title is private" data-url="https://github.com/dmlc/xgboost/issues/5513" data-hovercard-type="pull_request" data-hovercard-url="/dmlc/xgboost/pull/5513/hovercard" href="https://github.com/dmlc/xgboost/pull/5513">#5513</a><a data-pjax="true" title="Remove makefiles. (#5513)" class="link-gray" href="https://github.com/dmlc/xgboost/commit/a3db79df22ace13b26e8514ce018cb9c1ad33214">)</a>
+                </span>
+            </div>
+
+            <div role="gridcell" class="text-gray-light text-right" style="width:100px;">
+                <time-ago datetime="2020-04-11T05:25:53Z" class="no-wrap" title="Apr 10, 2020, 10:25 PM MST">3 months ago</time-ago>
+            </div>
+
+          </div>
+          <div role="row" class="Box-row Box-row--focus-gray py-2 d-flex position-relative js-navigation-item ">
+            <div role="gridcell" class="mr-3 flex-shrink-0" style="width: 16px;">
+              <svg height="16" class="octicon octicon-file-directory color-blue-3" color="blue-3" aria-label="Directory" viewBox="0 0 16 16" version="1.1" width="16" role="img"><path fill-rule="evenodd" d="M1.75 1A1.75 1.75 0 000 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0016 13.25v-8.5A1.75 1.75 0 0014.25 3h-6.5a.25.25 0 01-.2-.1l-.9-1.2c-.33-.44-.85-.7-1.4-.7h-3.5z"></path></svg>
+
+
+            </div>
+
+            <div role="rowheader" class="flex-auto min-width-0 col-md-2 mr-3">
+              <span class="css-truncate css-truncate-target d-block width-fit"><a class="js-navigation-open link-gray-dark" title="gpu_acceleration" id="75cbc641ae7b316c4a131e462da5d399-ca5816ce3f0a68c12d56a0cff0211d1275ea4cf7" href="https://github.com/dmlc/xgboost/tree/master/demo/gpu_acceleration">gpu_acceleration</a></span>
+            </div>
+
+            <div role="gridcell" class="flex-auto min-width-0 d-none d-md-block col-5 mr-3 commit-message">
+                <span class="css-truncate css-truncate-target d-block width-fit">
+                      <a data-pjax="true" title="Update Python demos with tests. (#5651)
+
+* Remove GPU memory usage demo.
+* Add tests for demos.
+* Remove `silent`.
+* Remove shebang as it&#39;s not portable." class="link-gray" href="https://github.com/dmlc/xgboost/commit/2c1a439869506532f48d387e7d39beeab358c76b">Update Python demos with tests. (</a><a class="issue-link js-issue-link" data-error-text="Failed to load title" data-id="615367126" data-permission-text="Title is private" data-url="https://github.com/dmlc/xgboost/issues/5651" data-hovercard-type="pull_request" data-hovercard-url="/dmlc/xgboost/pull/5651/hovercard" href="https://github.com/dmlc/xgboost/pull/5651">#5651</a><a data-pjax="true" title="Update Python demos with tests. (#5651)
+
+* Remove GPU memory usage demo.
+* Add tests for demos.
+* Remove `silent`.
+* Remove shebang as it&#39;s not portable." class="link-gray" href="https://github.com/dmlc/xgboost/commit/2c1a439869506532f48d387e7d39beeab358c76b">)</a>
+                </span>
+            </div>
+
+            <div role="gridcell" class="text-gray-light text-right" style="width:100px;">
+                <time-ago datetime="2020-05-12T04:04:42Z" class="no-wrap" title="May 11, 2020, 9:04 PM MST">2 months ago</time-ago>
+            </div>
+
+          </div>
+          <div role="row" class="Box-row Box-row--focus-gray py-2 d-flex position-relative js-navigation-item ">
+            <div role="gridcell" class="mr-3 flex-shrink-0" style="width: 16px;">
+              <svg height="16" class="octicon octicon-file-directory color-blue-3" color="blue-3" aria-label="Directory" viewBox="0 0 16 16" version="1.1" width="16" role="img"><path fill-rule="evenodd" d="M1.75 1A1.75 1.75 0 000 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0016 13.25v-8.5A1.75 1.75 0 0014.25 3h-6.5a.25.25 0 01-.2-.1l-.9-1.2c-.33-.44-.85-.7-1.4-.7h-3.5z"></path></svg>
+
+
+            </div>
+
+            <div role="rowheader" class="flex-auto min-width-0 col-md-2 mr-3">
+              <span class="css-truncate css-truncate-target d-block width-fit"><a class="js-navigation-open link-gray-dark" title="guide-python" id="f668a8055acdfc9de5a36fb02dfdde33-a5f4cfd09167d7b62ca7e6c36c3c02f0f0edd6ab" href="https://github.com/dmlc/xgboost/tree/master/demo/guide-python">guide-python</a></span>
+            </div>
+
+            <div role="gridcell" class="flex-auto min-width-0 d-none d-md-block col-5 mr-3 commit-message">
+                <span class="css-truncate css-truncate-target d-block width-fit">
+                      <a data-pjax="true" title="Implement Python data handler. (#5689)
+
+
+* Define data handlers for DMatrix.
+* Throw ValueError in scikit learn interface." class="link-gray" href="https://github.com/dmlc/xgboost/commit/5af8161a1a11a6d32aa9661c18be83e7df27a1af">Implement Python data handler. (</a><a class="issue-link js-issue-link" data-error-text="Failed to load title" data-id="621983630" data-permission-text="Title is private" data-url="https://github.com/dmlc/xgboost/issues/5689" data-hovercard-type="pull_request" data-hovercard-url="/dmlc/xgboost/pull/5689/hovercard" href="https://github.com/dmlc/xgboost/pull/5689">#5689</a><a data-pjax="true" title="Implement Python data handler. (#5689)
+
+
+* Define data handlers for DMatrix.
+* Throw ValueError in scikit learn interface." class="link-gray" href="https://github.com/dmlc/xgboost/commit/5af8161a1a11a6d32aa9661c18be83e7df27a1af">)</a>
+                </span>
+            </div>
+
+            <div role="gridcell" class="text-gray-light text-right" style="width:100px;">
+                <time-ago datetime="2020-05-22T03:53:55Z" class="no-wrap" title="May 21, 2020, 8:53 PM MST">last month</time-ago>
+            </div>
+
+          </div>
+          <div role="row" class="Box-row Box-row--focus-gray py-2 d-flex position-relative js-navigation-item">
+            <div role="gridcell" class="mr-3 flex-shrink-0" style="width: 16px;">
+              <svg height="16" class="octicon octicon-file-directory color-blue-3" color="blue-3" aria-label="Directory" viewBox="0 0 16 16" version="1.1" width="16" role="img"><path fill-rule="evenodd" d="M1.75 1A1.75 1.75 0 000 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0016 13.25v-8.5A1.75 1.75 0 0014.25 3h-6.5a.25.25 0 01-.2-.1l-.9-1.2c-.33-.44-.85-.7-1.4-.7h-3.5z"></path></svg>
+
+
+            </div>
+
+            <div role="rowheader" class="flex-auto min-width-0 col-md-2 mr-3">
+              <span class="css-truncate css-truncate-target d-block width-fit"><a class="js-navigation-open link-gray-dark" title="json-model" id="e209e37ffe23bb9e470d16400332767b-58d96e0a17a5858b8444803f3b00908c345c38ac" href="https://github.com/dmlc/xgboost/tree/master/demo/json-model">json-model</a></span>
+            </div>
+
+            <div role="gridcell" class="flex-auto min-width-0 d-none d-md-block col-5 mr-3 commit-message">
+                <span class="css-truncate css-truncate-target d-block width-fit">
+                      <a data-pjax="true" title="Example JSON model parser and Schema. (#5137)" class="link-gray" href="https://github.com/dmlc/xgboost/commit/1d0ca49761d6a7dace5aec6af80c4aef7367fc2f">Example JSON model parser and Schema. (</a><a class="issue-link js-issue-link" data-error-text="Failed to load title" data-id="540390077" data-permission-text="Title is private" data-url="https://github.com/dmlc/xgboost/issues/5137" data-hovercard-type="pull_request" data-hovercard-url="/dmlc/xgboost/pull/5137/hovercard" href="https://github.com/dmlc/xgboost/pull/5137">#5137</a><a data-pjax="true" title="Example JSON model parser and Schema. (#5137)" class="link-gray" href="https://github.com/dmlc/xgboost/commit/1d0ca49761d6a7dace5aec6af80c4aef7367fc2f">)</a>
+                </span>
+            </div>
+
+            <div role="gridcell" class="text-gray-light text-right" style="width:100px;">
+                <time-ago datetime="2019-12-23T11:47:35Z" class="no-wrap" title="Dec 23, 2019, 4:47 AM MST">6 months ago</time-ago>
+            </div>
+
+          </div>
+          <div role="row" class="Box-row Box-row--focus-gray py-2 d-flex position-relative js-navigation-item ">
+            <div role="gridcell" class="mr-3 flex-shrink-0" style="width: 16px;">
+              <svg height="16" class="octicon octicon-file-directory color-blue-3" color="blue-3" aria-label="Directory" viewBox="0 0 16 16" version="1.1" width="16" role="img"><path fill-rule="evenodd" d="M1.75 1A1.75 1.75 0 000 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0016 13.25v-8.5A1.75 1.75 0 0014.25 3h-6.5a.25.25 0 01-.2-.1l-.9-1.2c-.33-.44-.85-.7-1.4-.7h-3.5z"></path></svg>
+
+
+            </div>
+
+            <div role="rowheader" class="flex-auto min-width-0 col-md-2 mr-3">
+              <span class="css-truncate css-truncate-target d-block width-fit"><a class="js-navigation-open link-gray-dark" title="kaggle-higgs" id="b183ea47546f5b051e164dacd7c8f5d3-499c3a2b8fba11505eb81114cf8ef99e188bc1d1" href="https://github.com/dmlc/xgboost/tree/master/demo/kaggle-higgs">kaggle-higgs</a></span>
+            </div>
+
+            <div role="gridcell" class="flex-auto min-width-0 d-none d-md-block col-5 mr-3 commit-message">
+                <span class="css-truncate css-truncate-target d-block width-fit">
+                      <a data-pjax="true" title="Remove silent from R demos. (#5675)
+
+* Remove silent from R demos.
+
+* Vignettes." class="link-gray" href="https://github.com/dmlc/xgboost/commit/7903286961fce669b89b39a987a0489f2260c4fe">Remove silent from R demos. (</a><a class="issue-link js-issue-link" data-error-text="Failed to load title" data-id="620193692" data-permission-text="Title is private" data-url="https://github.com/dmlc/xgboost/issues/5675" data-hovercard-type="pull_request" data-hovercard-url="/dmlc/xgboost/pull/5675/hovercard" href="https://github.com/dmlc/xgboost/pull/5675">#5675</a><a data-pjax="true" title="Remove silent from R demos. (#5675)
+
+* Remove silent from R demos.
+
+* Vignettes." class="link-gray" href="https://github.com/dmlc/xgboost/commit/7903286961fce669b89b39a987a0489f2260c4fe">)</a>
+                </span>
+            </div>
+
+            <div role="gridcell" class="text-gray-light text-right" style="width:100px;">
+                <time-ago datetime="2020-05-19T10:20:46Z" class="no-wrap" title="May 19, 2020, 3:20 AM MST">last month</time-ago>
+            </div>
+
+          </div>
+          <div role="row" class="Box-row Box-row--focus-gray py-2 d-flex position-relative js-navigation-item ">
+            <div role="gridcell" class="mr-3 flex-shrink-0" style="width: 16px;">
+              <svg height="16" class="octicon octicon-file-directory color-blue-3" color="blue-3" aria-label="Directory" viewBox="0 0 16 16" version="1.1" width="16" role="img"><path fill-rule="evenodd" d="M1.75 1A1.75 1.75 0 000 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0016 13.25v-8.5A1.75 1.75 0 0014.25 3h-6.5a.25.25 0 01-.2-.1l-.9-1.2c-.33-.44-.85-.7-1.4-.7h-3.5z"></path></svg>
+
+
+            </div>
+
+            <div role="rowheader" class="flex-auto min-width-0 col-md-2 mr-3">
+              <span class="css-truncate css-truncate-target d-block width-fit"><a class="js-navigation-open link-gray-dark" title="kaggle-otto" id="e566ec3deebceeed5c634add94d7983d-ab34194aa8819e4aa429494b6b7086587dab880e" href="https://github.com/dmlc/xgboost/tree/master/demo/kaggle-otto">kaggle-otto</a></span>
+            </div>
+
+            <div role="gridcell" class="flex-auto min-width-0 d-none d-md-block col-5 mr-3 commit-message">
+                <span class="css-truncate css-truncate-target d-block width-fit">
+                      <a data-pjax="true" title="[R] replace uses of T and F with TRUE and FALSE (#5778)
+
+* [R-package] replace uses of T and F with TRUE and FALSE
+
+* enable linting
+
+* Remove skip
+
+Co-authored-by: Philip Hyunsu Cho &lt;chohyu01@cs.washington.edu&gt;" class="link-gray" href="https://github.com/dmlc/xgboost/commit/c35be9dc40459d33eba2b66e06811fcb46fb327e">[R] replace uses of T and F with TRUE and FALSE (</a><a class="issue-link js-issue-link" data-error-text="Failed to load title" data-id="636659109" data-permission-text="Title is private" data-url="https://github.com/dmlc/xgboost/issues/5778" data-hovercard-type="pull_request" data-hovercard-url="/dmlc/xgboost/pull/5778/hovercard" href="https://github.com/dmlc/xgboost/pull/5778">#5778</a><a data-pjax="true" title="[R] replace uses of T and F with TRUE and FALSE (#5778)
+
+* [R-package] replace uses of T and F with TRUE and FALSE
+
+* enable linting
+
+* Remove skip
+
+Co-authored-by: Philip Hyunsu Cho &lt;chohyu01@cs.washington.edu&gt;" class="link-gray" href="https://github.com/dmlc/xgboost/commit/c35be9dc40459d33eba2b66e06811fcb46fb327e">)</a>
+                </span>
+            </div>
+
+            <div role="gridcell" class="text-gray-light text-right" style="width:100px;">
+                <time-ago datetime="2020-06-11T10:08:02Z" class="no-wrap" title="Jun 11, 2020, 3:08 AM MST">19 days ago</time-ago>
+            </div>
+
+          </div>
+          <div role="row" class="Box-row Box-row--focus-gray py-2 d-flex position-relative js-navigation-item ">
+            <div role="gridcell" class="mr-3 flex-shrink-0" style="width: 16px;">
+              <svg height="16" class="octicon octicon-file-directory color-blue-3" color="blue-3" aria-label="Directory" viewBox="0 0 16 16" version="1.1" width="16" role="img"><path fill-rule="evenodd" d="M1.75 1A1.75 1.75 0 000 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0016 13.25v-8.5A1.75 1.75 0 0014.25 3h-6.5a.25.25 0 01-.2-.1l-.9-1.2c-.33-.44-.85-.7-1.4-.7h-3.5z"></path></svg>
+
+
+            </div>
+
+            <div role="rowheader" class="flex-auto min-width-0 col-md-2 mr-3">
+              <span class="css-truncate css-truncate-target d-block width-fit"><a class="js-navigation-open link-gray-dark" title="multiclass_classification" id="17330b1c0b9e90894c1e1a1f7e9809b3-1157f3fef1855ca00370b45c9cf59140d81ac046" href="https://github.com/dmlc/xgboost/tree/master/demo/multiclass_classification">multiclass_classification</a></span>
+            </div>
+
+            <div role="gridcell" class="flex-auto min-width-0 d-none d-md-block col-5 mr-3 commit-message">
+                <span class="css-truncate css-truncate-target d-block width-fit">
+                      <a data-pjax="true" title="Update Python demos with tests. (#5651)
+
+* Remove GPU memory usage demo.
+* Add tests for demos.
+* Remove `silent`.
+* Remove shebang as it&#39;s not portable." class="link-gray" href="https://github.com/dmlc/xgboost/commit/2c1a439869506532f48d387e7d39beeab358c76b">Update Python demos with tests. (</a><a class="issue-link js-issue-link" data-error-text="Failed to load title" data-id="615367126" data-permission-text="Title is private" data-url="https://github.com/dmlc/xgboost/issues/5651" data-hovercard-type="pull_request" data-hovercard-url="/dmlc/xgboost/pull/5651/hovercard" href="https://github.com/dmlc/xgboost/pull/5651">#5651</a><a data-pjax="true" title="Update Python demos with tests. (#5651)
+
+* Remove GPU memory usage demo.
+* Add tests for demos.
+* Remove `silent`.
+* Remove shebang as it&#39;s not portable." class="link-gray" href="https://github.com/dmlc/xgboost/commit/2c1a439869506532f48d387e7d39beeab358c76b">)</a>
+                </span>
+            </div>
+
+            <div role="gridcell" class="text-gray-light text-right" style="width:100px;">
+                <time-ago datetime="2020-05-12T04:04:42Z" class="no-wrap" title="May 11, 2020, 9:04 PM MST">2 months ago</time-ago>
+            </div>
+
+          </div>
+          <div role="row" class="Box-row Box-row--focus-gray py-2 d-flex position-relative js-navigation-item ">
+            <div role="gridcell" class="mr-3 flex-shrink-0" style="width: 16px;">
+              <svg height="16" class="octicon octicon-file-directory color-blue-3" color="blue-3" aria-label="Directory" viewBox="0 0 16 16" version="1.1" width="16" role="img"><path fill-rule="evenodd" d="M1.75 1A1.75 1.75 0 000 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0016 13.25v-8.5A1.75 1.75 0 0014.25 3h-6.5a.25.25 0 01-.2-.1l-.9-1.2c-.33-.44-.85-.7-1.4-.7h-3.5z"></path></svg>
+
+
+            </div>
+
+            <div role="rowheader" class="flex-auto min-width-0 col-md-2 mr-3">
+              <span class="css-truncate css-truncate-target d-block width-fit"><a class="js-navigation-open link-gray-dark" title="rank" id="65dc5d2a03aac87b199cba2986986d05-83f3306ed94ce2b40e298a6ed623629c11c0d5e4" href="https://github.com/dmlc/xgboost/tree/master/demo/rank">rank</a></span>
+            </div>
+
+            <div role="gridcell" class="flex-auto min-width-0 d-none d-md-block col-5 mr-3 commit-message">
+                <span class="css-truncate css-truncate-target d-block width-fit">
+                      <a data-pjax="true" title="Update demo for ranking. (#5154)" class="link-gray" href="https://github.com/dmlc/xgboost/commit/73b1bd27899e35ff57f5aca33f1685ea6db10f31">Update demo for ranking. (</a><a class="issue-link js-issue-link" data-error-text="Failed to load title" data-id="541964026" data-permission-text="Title is private" data-url="https://github.com/dmlc/xgboost/issues/5154" data-hovercard-type="pull_request" data-hovercard-url="/dmlc/xgboost/pull/5154/hovercard" href="https://github.com/dmlc/xgboost/pull/5154">#5154</a><a data-pjax="true" title="Update demo for ranking. (#5154)" class="link-gray" href="https://github.com/dmlc/xgboost/commit/73b1bd27899e35ff57f5aca33f1685ea6db10f31">)</a>
+                </span>
+            </div>
+
+            <div role="gridcell" class="text-gray-light text-right" style="width:100px;">
+                <time-ago datetime="2019-12-24T05:39:07Z" class="no-wrap" title="Dec 23, 2019, 10:39 PM MST">6 months ago</time-ago>
+            </div>
+
+          </div>
+          <div role="row" class="Box-row Box-row--focus-gray py-2 d-flex position-relative js-navigation-item ">
+            <div role="gridcell" class="mr-3 flex-shrink-0" style="width: 16px;">
+              <svg height="16" class="octicon octicon-file-directory color-blue-3" color="blue-3" aria-label="Directory" viewBox="0 0 16 16" version="1.1" width="16" role="img"><path fill-rule="evenodd" d="M1.75 1A1.75 1.75 0 000 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0016 13.25v-8.5A1.75 1.75 0 0014.25 3h-6.5a.25.25 0 01-.2-.1l-.9-1.2c-.33-.44-.85-.7-1.4-.7h-3.5z"></path></svg>
+
+
+            </div>
+
+            <div role="rowheader" class="flex-auto min-width-0 col-md-2 mr-3">
+              <span class="css-truncate css-truncate-target d-block width-fit"><a class="js-navigation-open link-gray-dark" title="regression" id="c735ca28f98e533a5534dab7927509d8-568611f0d89514ea1a42709d46e222e3c713c317" href="https://github.com/dmlc/xgboost/tree/master/demo/regression">regression</a></span>
+            </div>
+
+            <div role="gridcell" class="flex-auto min-width-0 d-none d-md-block col-5 mr-3 commit-message">
+                <span class="css-truncate css-truncate-target d-block width-fit">
+                       <a data-pjax="true" title=" Deprecate `reg:linear&#39; in favor of `reg:squarederror&#39;. (#4267)
+
+* Deprecate `reg:linear&#39; in favor of `reg:squarederror&#39;.
+* Replace the use of `reg:linear&#39;.
+* Replace the use of `silent`." class="link-gray" href="https://github.com/dmlc/xgboost/commit/29a1356669cb3c3ca2a6b22bced5047912072804">Deprecate `reg:linear' in favor of `reg:squarederror'. (</a><a class="issue-link js-issue-link" data-error-text="Failed to load title" data-id="421895798" data-permission-text="Title is private" data-url="https://github.com/dmlc/xgboost/issues/4267" data-hovercard-type="pull_request" data-hovercard-url="/dmlc/xgboost/pull/4267/hovercard" href="https://github.com/dmlc/xgboost/pull/4267">#4267</a><a data-pjax="true" title=" Deprecate `reg:linear&#39; in favor of `reg:squarederror&#39;. (#4267)
+
+* Deprecate `reg:linear&#39; in favor of `reg:squarederror&#39;.
+* Replace the use of `reg:linear&#39;.
+* Replace the use of `silent`." class="link-gray" href="https://github.com/dmlc/xgboost/commit/29a1356669cb3c3ca2a6b22bced5047912072804">)</a>
+                </span>
+            </div>
+
+            <div role="gridcell" class="text-gray-light text-right" style="width:100px;">
+                <time-ago datetime="2019-03-17T09:55:04Z" class="no-wrap" title="Mar 17, 2019, 2:55 AM MST">16 months ago</time-ago>
+            </div>
+
+          </div>
+          <div role="row" class="Box-row Box-row--focus-gray py-2 d-flex position-relative js-navigation-item ">
+            <div role="gridcell" class="mr-3 flex-shrink-0" style="width: 16px;">
+              <svg height="16" class="octicon octicon-file-directory color-blue-3" color="blue-3" aria-label="Directory" viewBox="0 0 16 16" version="1.1" width="16" role="img"><path fill-rule="evenodd" d="M1.75 1A1.75 1.75 0 000 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0016 13.25v-8.5A1.75 1.75 0 0014.25 3h-6.5a.25.25 0 01-.2-.1l-.9-1.2c-.33-.44-.85-.7-1.4-.7h-3.5z"></path></svg>
+
+
+            </div>
+
+            <div role="rowheader" class="flex-auto min-width-0 col-md-2 mr-3">
+              <span class="css-truncate css-truncate-target d-block width-fit"><a class="js-navigation-open link-gray-dark" title="yearpredMSD" id="29d42d507f57e8d9c344b3a563ee8e26-3ad07dccdc683c5b948ebd213762b56043736e08" href="https://github.com/dmlc/xgboost/tree/master/demo/yearpredMSD">yearpredMSD</a></span>
+            </div>
+
+            <div role="gridcell" class="flex-auto min-width-0 d-none d-md-block col-5 mr-3 commit-message">
+                <span class="css-truncate css-truncate-target d-block width-fit">
+                       <a data-pjax="true" title=" Deprecate `reg:linear&#39; in favor of `reg:squarederror&#39;. (#4267)
+
+* Deprecate `reg:linear&#39; in favor of `reg:squarederror&#39;.
+* Replace the use of `reg:linear&#39;.
+* Replace the use of `silent`." class="link-gray" href="https://github.com/dmlc/xgboost/commit/29a1356669cb3c3ca2a6b22bced5047912072804">Deprecate `reg:linear' in favor of `reg:squarederror'. (</a><a class="issue-link js-issue-link" data-error-text="Failed to load title" data-id="421895798" data-permission-text="Title is private" data-url="https://github.com/dmlc/xgboost/issues/4267" data-hovercard-type="pull_request" data-hovercard-url="/dmlc/xgboost/pull/4267/hovercard" href="https://github.com/dmlc/xgboost/pull/4267">#4267</a><a data-pjax="true" title=" Deprecate `reg:linear&#39; in favor of `reg:squarederror&#39;. (#4267)
+
+* Deprecate `reg:linear&#39; in favor of `reg:squarederror&#39;.
+* Replace the use of `reg:linear&#39;.
+* Replace the use of `silent`." class="link-gray" href="https://github.com/dmlc/xgboost/commit/29a1356669cb3c3ca2a6b22bced5047912072804">)</a>
+                </span>
+            </div>
+
+            <div role="gridcell" class="text-gray-light text-right" style="width:100px;">
+                <time-ago datetime="2019-03-17T09:55:04Z" class="no-wrap" title="Mar 17, 2019, 2:55 AM MST">16 months ago</time-ago>
+            </div>
+
+          </div>
+          <div role="row" class="Box-row Box-row--focus-gray py-2 d-flex position-relative js-navigation-item ">
+            <div role="gridcell" class="mr-3 flex-shrink-0" style="width: 16px;">
+              <svg height="16" class="octicon octicon-file text-gray-light" color="gray-light" aria-label="File" viewBox="0 0 16 16" version="1.1" width="16" role="img"><path fill-rule="evenodd" d="M3.75 1.5a.25.25 0 00-.25.25v11.5c0 .138.112.25.25.25h8.5a.25.25 0 00.25-.25V6H9.75A1.75 1.75 0 018 4.25V1.5H3.75zm5.75.56v2.19c0 .138.112.25.25.25h2.19L9.5 2.06zM2 1.75C2 .784 2.784 0 3.75 0h5.086c.464 0 .909.184 1.237.513l3.414 3.414c.329.328.513.773.513 1.237v8.086A1.75 1.75 0 0112.25 15h-8.5A1.75 1.75 0 012 13.25V1.75z"></path></svg>
+
+
+            </div>
+
+            <div role="rowheader" class="flex-auto min-width-0 col-md-2 mr-3">
+              <span class="css-truncate css-truncate-target d-block width-fit"><a class="js-navigation-open link-gray-dark" title=".gitignore" id="a084b794bc0759e7a6b77810e01874f2-ee79c704b2688d3b49699883f3afad0a1e4136b3" href="https://github.com/dmlc/xgboost/blob/master/demo/.gitignore">.gitignore</a></span>
+            </div>
+
+            <div role="gridcell" class="flex-auto min-width-0 d-none d-md-block col-5 mr-3 commit-message">
+                <span class="css-truncate css-truncate-target d-block width-fit">
+                      <a data-pjax="true" title="python package refactor into python-package" class="link-gray" href="https://github.com/dmlc/xgboost/commit/c2fec29bfa91d0fad27fa8d0338eac283aac4996">python package refactor into python-package</a>
+                </span>
+            </div>
+
+            <div role="gridcell" class="text-gray-light text-right" style="width:100px;">
+                <time-ago datetime="2015-07-31T05:04:45Z" class="no-wrap" title="Jul 30, 2015, 10:04 PM MST">5 years ago</time-ago>
+            </div>
+
+          </div>
+          <div role="row" class="Box-row Box-row--focus-gray py-2 d-flex position-relative js-navigation-item ">
+            <div role="gridcell" class="mr-3 flex-shrink-0" style="width: 16px;">
+              <svg height="16" class="octicon octicon-file text-gray-light" color="gray-light" aria-label="File" viewBox="0 0 16 16" version="1.1" width="16" role="img"><path fill-rule="evenodd" d="M3.75 1.5a.25.25 0 00-.25.25v11.5c0 .138.112.25.25.25h8.5a.25.25 0 00.25-.25V6H9.75A1.75 1.75 0 018 4.25V1.5H3.75zm5.75.56v2.19c0 .138.112.25.25.25h2.19L9.5 2.06zM2 1.75C2 .784 2.784 0 3.75 0h5.086c.464 0 .909.184 1.237.513l3.414 3.414c.329.328.513.773.513 1.237v8.086A1.75 1.75 0 0112.25 15h-8.5A1.75 1.75 0 012 13.25V1.75z"></path></svg>
+
+
+            </div>
+
+            <div role="rowheader" class="flex-auto min-width-0 col-md-2 mr-3">
+              <span class="css-truncate css-truncate-target d-block width-fit"><a class="js-navigation-open link-gray-dark" title="README.md" id="04c6e90faac2675aa89e2176d2eec7d8-e11ef57704d70d5912e2118c7bdb6ac7fbae9537" href="https://github.com/dmlc/xgboost/blob/master/demo/README.md">README.md</a></span>
+            </div>
+
+            <div role="gridcell" class="flex-auto min-width-0 d-none d-md-block col-5 mr-3 commit-message">
+                <span class="css-truncate css-truncate-target d-block width-fit">
+                      <a data-pjax="true" title="Add Neptune and Optuna to list of examples (#5528)" class="link-gray" href="https://github.com/dmlc/xgboost/commit/2809fb8b6fb7255100a2671ab86fa758afc54b03">Add Neptune and Optuna to list of examples (</a><a class="issue-link js-issue-link" data-error-text="Failed to load title" data-id="599520563" data-permission-text="Title is private" data-url="https://github.com/dmlc/xgboost/issues/5528" data-hovercard-type="pull_request" data-hovercard-url="/dmlc/xgboost/pull/5528/hovercard" href="https://github.com/dmlc/xgboost/pull/5528">#5528</a><a data-pjax="true" title="Add Neptune and Optuna to list of examples (#5528)" class="link-gray" href="https://github.com/dmlc/xgboost/commit/2809fb8b6fb7255100a2671ab86fa758afc54b03">)</a>
+                </span>
+            </div>
+
+            <div role="gridcell" class="text-gray-light text-right" style="width:100px;">
+                <time-ago datetime="2020-04-14T18:00:50Z" class="no-wrap" title="Apr 14, 2020, 11:00 AM MST">3 months ago</time-ago>
+            </div>
+
+          </div>
+      </div>
+    </div>
+
+
+
+
+</div>
+
+  <div id="readme" class="Box md js-code-block-container Box--responsive">
+    <div class="Box-header d-flex flex-items-center flex-justify-between bg-white border-bottom-0">
+      <h2 class="Box-title pr-3">
+        
+        README.md
+      </h2>
+    </div>
+        <div class="Popover anim-scale-in js-tagsearch-popover" hidden="" data-tagsearch-url="/dmlc/xgboost/find-symbols" data-tagsearch-ref="master" data-tagsearch-path="demo/README.md" data-tagsearch-lang="Markdown" data-hydro-click="{&quot;event_type&quot;:&quot;code_navigation.click_on_symbol&quot;,&quot;payload&quot;:{&quot;action&quot;:&quot;click_on_symbol&quot;,&quot;repository_id&quot;:16587283,&quot;ref&quot;:&quot;master&quot;,&quot;language&quot;:&quot;Markdown&quot;,&quot;originating_url&quot;:&quot;https://github.com/dmlc/xgboost/tree/master/demo&quot;,&quot;user_id&quot;:null}}" data-hydro-click-hmac="5fab201ede9ddee2abfb1120d556570991147cd065b594c6d1359dc8ba3073b1">
+  <div class="Popover-message Popover-message--large Popover-message--top-left TagsearchPopover mt-1 mb-4 mx-auto Box box-shadow-large">
+    <div class="TagsearchPopover-content js-tagsearch-popover-content overflow-auto" style="will-change:transform;">
+    </div>
+  </div>
+</div>
+
+      <div class="Box-body px-5 pb-5">
+        <article class="markdown-body entry-content container-lg" itemprop="text"><h1><a id="user-content-awesome-xgboost" class="anchor" aria-hidden="true" href="https://github.com/dmlc/xgboost/tree/master/demo#awesome-xgboost"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Awesome XGBoost</h1>
+<p>This page contains a curated list of examples, tutorials, blogs about XGBoost usecases.
+It is inspired by <a href="https://github.com/dmlc/mxnet/blob/master/example/README.md">awesome-MXNet</a>,
+<a href="https://github.com/ziadoz/awesome-php">awesome-php</a> and <a href="https://github.com/josephmisiti/awesome-machine-learning">awesome-machine-learning</a>.</p>
+<p>Please send a pull request if you find things that belongs to here.</p>
+<h2><a id="user-content-contents" class="anchor" aria-hidden="true" href="https://github.com/dmlc/xgboost/tree/master/demo#contents"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Contents</h2>
+<ul>
+<li><a href="https://github.com/dmlc/xgboost/tree/master/demo#code-examples">Code Examples</a>
+<ul>
+<li><a href="https://github.com/dmlc/xgboost/tree/master/demo#features-walkthrough">Features Walkthrough</a></li>
+<li><a href="https://github.com/dmlc/xgboost/tree/master/demo#basic-examples-by-tasks">Basic Examples by Tasks</a></li>
+<li><a href="https://github.com/dmlc/xgboost/tree/master/demo#benchmarks">Benchmarks</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/dmlc/xgboost/tree/master/demo#machine-learning-challenge-winning-solutions">Machine Learning Challenge Winning Solutions</a></li>
+<li><a href="https://github.com/dmlc/xgboost/tree/master/demo#tutorials">Tutorials</a></li>
+<li><a href="https://github.com/dmlc/xgboost/tree/master/demo#usecases">Usecases</a></li>
+<li><a href="https://github.com/dmlc/xgboost/tree/master/demo#tools-using-xgboost">Tools using XGBoost</a></li>
+<li><a href="https://github.com/dmlc/xgboost/tree/master/demo#integrations-with-3rd-party-software">Integrations with 3rd party software</a></li>
+<li><a href="https://github.com/dmlc/xgboost/tree/master/demo#awards">Awards</a></li>
+<li><a href="https://github.com/dmlc/xgboost/tree/master/demo#windows-binaries">Windows Binaries</a></li>
+</ul>
+<h2><a id="user-content-code-examples" class="anchor" aria-hidden="true" href="https://github.com/dmlc/xgboost/tree/master/demo#code-examples"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Code Examples</h2>
+<h3><a id="user-content-features-walkthrough" class="anchor" aria-hidden="true" href="https://github.com/dmlc/xgboost/tree/master/demo#features-walkthrough"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Features Walkthrough</h3>
+<p>This is a list of short codes introducing different functionalities of xgboost packages.</p>
+<ul>
+<li>Basic walkthrough of packages
+<a href="https://github.com/dmlc/xgboost/blob/master/demo/guide-python/basic_walkthrough.py">python</a>
+<a href="https://github.com/dmlc/xgboost/blob/master/R-package/demo/basic_walkthrough.R">R</a>
+<a href="https://github.com/antinucleon/XGBoost.jl/blob/master/demo/basic_walkthrough.jl">Julia</a>
+<a href="https://github.com/bpachev/xgboost-php/blob/master/demo/titanic_demo.php">PHP</a></li>
+<li>Customize loss function, and evaluation metric
+<a href="https://github.com/dmlc/xgboost/blob/master/demo/guide-python/custom_objective.py">python</a>
+<a href="https://github.com/dmlc/xgboost/blob/master/R-package/demo/custom_objective.R">R</a>
+<a href="https://github.com/antinucleon/XGBoost.jl/blob/master/demo/custom_objective.jl">Julia</a></li>
+<li>Boosting from existing prediction
+<a href="https://github.com/dmlc/xgboost/blob/master/demo/guide-python/boost_from_prediction.py">python</a>
+<a href="https://github.com/dmlc/xgboost/blob/master/R-package/demo/boost_from_prediction.R">R</a>
+<a href="https://github.com/antinucleon/XGBoost.jl/blob/master/demo/boost_from_prediction.jl">Julia</a></li>
+<li>Predicting using first n trees
+<a href="https://github.com/dmlc/xgboost/blob/master/demo/guide-python/predict_first_ntree.py">python</a>
+<a href="https://github.com/dmlc/xgboost/blob/master/R-package/demo/predict_first_ntree.R">R</a>
+<a href="https://github.com/antinucleon/XGBoost.jl/blob/master/demo/predict_first_ntree.jl">Julia</a></li>
+<li>Generalized Linear Model
+<a href="https://github.com/dmlc/xgboost/blob/master/demo/guide-python/generalized_linear_model.py">python</a>
+<a href="https://github.com/dmlc/xgboost/blob/master/R-package/demo/generalized_linear_model.R">R</a>
+<a href="https://github.com/antinucleon/XGBoost.jl/blob/master/demo/generalized_linear_model.jl">Julia</a></li>
+<li>Cross validation
+<a href="https://github.com/dmlc/xgboost/blob/master/demo/guide-python/cross_validation.py">python</a>
+<a href="https://github.com/dmlc/xgboost/blob/master/R-package/demo/cross_validation.R">R</a>
+<a href="https://github.com/antinucleon/XGBoost.jl/blob/master/demo/cross_validation.jl">Julia</a></li>
+<li>Predicting leaf indices
+<a href="https://github.com/dmlc/xgboost/blob/master/demo/guide-python/predict_leaf_indices.py">python</a>
+<a href="https://github.com/dmlc/xgboost/blob/master/R-package/demo/predict_leaf_indices.R">R</a></li>
+</ul>
+<h3><a id="user-content-basic-examples-by-tasks" class="anchor" aria-hidden="true" href="https://github.com/dmlc/xgboost/tree/master/demo#basic-examples-by-tasks"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Basic Examples by Tasks</h3>
+<p>Most of examples in this section are based on CLI or python version.
+However, the parameter settings can be applied to all versions</p>
+<ul>
+<li><a href="https://github.com/dmlc/xgboost/blob/master/demo/binary_classification">Binary classification</a></li>
+<li><a href="https://github.com/dmlc/xgboost/blob/master/demo/multiclass_classification">Multiclass classification</a></li>
+<li><a href="https://github.com/dmlc/xgboost/blob/master/demo/regression">Regression</a></li>
+<li><a href="https://github.com/dmlc/xgboost/blob/master/demo/rank">Learning to Rank</a></li>
+</ul>
+<h3><a id="user-content-benchmarks" class="anchor" aria-hidden="true" href="https://github.com/dmlc/xgboost/tree/master/demo#benchmarks"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Benchmarks</h3>
+<ul>
+<li><a href="https://github.com/dmlc/xgboost/blob/master/demo/kaggle-higgs">Starter script for Kaggle Higgs Boson</a></li>
+<li><a href="https://github.com/daxiongshu/kaggle-tradeshift-winning-solution">Kaggle Tradeshift winning solution by daxiongshu</a></li>
+<li><a href="https://github.com/szilard/benchm-ml#boosting-gradient-boosted-treesgradient-boosting-machines">Benchmarking the most commonly used open source tools for binary classification</a></li>
+</ul>
+<h2><a id="user-content-machine-learning-challenge-winning-solutions" class="anchor" aria-hidden="true" href="https://github.com/dmlc/xgboost/tree/master/demo#machine-learning-challenge-winning-solutions"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Machine Learning Challenge Winning Solutions</h2>
+<p>XGBoost is extensively used by machine learning practitioners to create state of art data science solutions,
+this is a list of machine learning winning solutions with XGBoost.
+Please send pull requests if you find ones that are missing here.</p>
+<ul>
+<li>Maksims Volkovs, Guangwei Yu and Tomi Poutanen, 1st place of the <a href="http://2017.recsyschallenge.com/" rel="nofollow">2017 ACM RecSys challenge</a>. Link to <a href="http://www.cs.toronto.edu/~mvolkovs/recsys2017_challenge.pdf" rel="nofollow">paper</a>.</li>
+<li>Vlad Sandulescu, Mihai Chiru, 1st place of the <a href="https://kddcup2016.azurewebsites.net/" rel="nofollow">KDD Cup 2016 competition</a>. Link to <a href="http://arxiv.org/abs/1609.02728" rel="nofollow">the arxiv paper</a>.</li>
+<li>Marios Michailidis, Mathias Müller and HJ van Veen, 1st place of the <a href="https://www.kaggle.com/c/dato-native" rel="nofollow">Dato Truely Native? competition</a>. Link to <a href="http://blog.kaggle.com/2015/12/03/dato-winners-interview-1st-place-mad-professors/" rel="nofollow">the Kaggle interview</a>.</li>
+<li>Vlad Mironov, Alexander Guschin, 1st place of the <a href="https://www.kaggle.com/c/flavours-of-physics" rel="nofollow">CERN LHCb experiment Flavour of Physics competition</a>. Link to <a href="http://blog.kaggle.com/2015/11/30/flavour-of-physics-technical-write-up-1st-place-go-polar-bears/" rel="nofollow">the Kaggle interview</a>.</li>
+<li>Josef Slavicek, 3rd place of the <a href="https://www.kaggle.com/c/flavours-of-physics" rel="nofollow">CERN LHCb experiment Flavour of Physics competition</a>. Link to <a href="http://blog.kaggle.com/2015/11/23/flavour-of-physics-winners-interview-3rd-place-josef-slavicek/" rel="nofollow">the Kaggle interview</a>.</li>
+<li>Mario Filho, Josef Feigl, Lucas, Gilberto, 1st place of the <a href="https://www.kaggle.com/c/caterpillar-tube-pricing" rel="nofollow">Caterpillar Tube Pricing competition</a>. Link to <a href="http://blog.kaggle.com/2015/09/22/caterpillar-winners-interview-1st-place-gilberto-josef-leustagos-mario/" rel="nofollow">the Kaggle interview</a>.</li>
+<li>Qingchen Wang, 1st place of the <a href="https://www.kaggle.com/c/liberty-mutual-group-property-inspection-prediction" rel="nofollow">Liberty Mutual Property Inspection</a>. Link to <a href="http://blog.kaggle.com/2015/09/28/liberty-mutual-property-inspection-winners-interview-qingchen-wang/" rel="nofollow">the Kaggle interview</a>.</li>
+<li>Chenglong Chen, 1st place of the <a href="https://www.kaggle.com/c/crowdflower-search-relevance" rel="nofollow">Crowdflower Search Results Relevance</a>. Link to <a href="https://www.kaggle.com/c/crowdflower-search-relevance/forums/t/15186/1st-place-winner-solution-chenglong-chen/" rel="nofollow">the winning solution</a>.</li>
+<li>Alexandre Barachant (“Cat”) and Rafał Cycoń (“Dog”), 1st place of the <a href="https://www.kaggle.com/c/grasp-and-lift-eeg-detection" rel="nofollow">Grasp-and-Lift EEG Detection</a>. Link to <a href="http://blog.kaggle.com/2015/10/12/grasp-and-lift-eeg-winners-interview-1st-place-cat-dog/" rel="nofollow">the Kaggle interview</a>.</li>
+<li>Halla Yang, 2nd place of the <a href="https://www.kaggle.com/c/coupon-purchase-prediction" rel="nofollow">Recruit Coupon Purchase Prediction Challenge</a>. Link to <a href="http://blog.kaggle.com/2015/10/21/recruit-coupon-purchase-winners-interview-2nd-place-halla-yang/" rel="nofollow">the Kaggle interview</a>.</li>
+<li>Owen Zhang, 1st place of the <a href="https://www.kaggle.com/c/avito-context-ad-clicks" rel="nofollow">Avito Context Ad Clicks competition</a>. Link to <a href="http://blog.kaggle.com/2015/08/26/avito-winners-interview-1st-place-owen-zhang/" rel="nofollow">the Kaggle interview</a>.</li>
+<li>Keiichi Kuroyanagi, 2nd place of the <a href="https://www.kaggle.com/c/airbnb-recruiting-new-user-bookings" rel="nofollow">Airbnb New User Bookings</a>. Link to <a href="http://blog.kaggle.com/2016/03/17/airbnb-new-user-bookings-winners-interview-2nd-place-keiichi-kuroyanagi-keiku/" rel="nofollow">the Kaggle interview</a>.</li>
+<li>Marios Michailidis, Mathias Müller and Ning Situ, 1st place <a href="https://www.kaggle.com/c/homesite-quote-conversion" rel="nofollow">Homesite Quote Conversion</a>. Link to <a href="http://blog.kaggle.com/2016/04/08/homesite-quote-conversion-winners-write-up-1st-place-kazanova-faron-clobber/" rel="nofollow">the Kaggle interview</a>.</li>
+</ul>
+<h2><a id="user-content-talks" class="anchor" aria-hidden="true" href="https://github.com/dmlc/xgboost/tree/master/demo#talks"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Talks</h2>
+<ul>
+<li><a href="http://datascience.la/xgboost-workshop-and-meetup-talk-with-tianqi-chen/" rel="nofollow">XGBoost: A Scalable Tree Boosting System</a> (video+slides) by Tianqi Chen at the Los Angeles Data Science meetup</li>
+</ul>
+<h2><a id="user-content-tutorials" class="anchor" aria-hidden="true" href="https://github.com/dmlc/xgboost/tree/master/demo#tutorials"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Tutorials</h2>
+<ul>
+<li><a href="https://www.qubole.com/blog/machine-learning-xgboost-qubole-spark-cluster/" rel="nofollow">Machine Learning with XGBoost on Qubole Spark Cluster</a></li>
+<li><a href="https://xgboost.readthedocs.org/en/latest/R-package/index.html#tutorials" rel="nofollow">XGBoost Official RMarkdown Tutorials</a></li>
+<li><a href="http://dmlc.ml/rstats/2016/03/10/xgboost.html" rel="nofollow">An Introduction to XGBoost R Package</a> by Tong He</li>
+<li><a href="http://www.slideshare.net/odsc/owen-zhangopen-sourcetoolsanddscompetitions1" rel="nofollow">Open Source Tools &amp; Data Science Competitions</a> by Owen Zhang - XGBoost parameter tuning tips</li>
+</ul>
+<ul>
+<li><a href="http://fr.slideshare.net/MichaelBENESTY/feature-importance-analysis-with-xgboost-in-tax-audit" rel="nofollow">Feature Importance Analysis with XGBoost in Tax audit</a></li>
+<li><a href="http://no2147483647.wordpress.com/2014/09/17/winning-solution-of-kaggle-higgs-competition-what-a-single-model-can-do/" rel="nofollow">Winning solution of Kaggle Higgs competition: what a single model can do</a></li>
+</ul>
+<ul>
+<li><a href="http://www.slideshare.net/ShangxuanZhang/xgboost" rel="nofollow">XGBoost - eXtreme Gradient Boosting</a> by Tong He</li>
+<li><a href="http://www.analyticsvidhya.com/blog/2016/01/xgboost-algorithm-easy-steps/" rel="nofollow">How to use XGBoost algorithm in R in easy steps</a> by TAVISH SRIVASTAVA (<a href="https://segmentfault.com/a/1190000004421821" rel="nofollow">Chinese Translation 中文翻译</a> by <a href="https://segmentfault.com/u/harryprince" rel="nofollow">HarryZhu</a>)</li>
+<li><a href="http://www.analyticsvidhya.com/blog/2015/12/kaggle-solution-cooking-text-mining-competition/" rel="nofollow">Kaggle Solution: What’s Cooking ? (Text Mining Competition)</a> by MANISH SARASWAT</li>
+<li>Better Optimization with Repeated Cross Validation and the XGBoost model - Machine Learning with R) by Manuel Amunategui (<a href="https://www.youtube.com/watch?v=Og7CGAfSr_Y" rel="nofollow">Youtube Link</a>) (<a href="https://github.com/amunategui/BetterCrossValidation">Github Link</a>)</li>
+<li><a href="https://www.kaggle.com/khozzy/rossmann-store-sales/xgboost-parameter-tuning-template/run/90168/notebook" rel="nofollow">XGBoost Rossman Parameter Tuning</a> by <a href="https://www.kaggle.com/khozzy" rel="nofollow">Norbert Kozlowski</a></li>
+<li><a href="http://www.slideshare.net/DataRobot/featurizing-log-data-before-xgboost" rel="nofollow">Featurizing log data before XGBoost</a> by Xavier Conort, Owen Zhang etc</li>
+<li><a href="http://blog.kaggle.com/2015/07/21/west-nile-virus-competition-benchmarks-tutorials/" rel="nofollow">West Nile Virus Competition Benchmarks &amp; Tutorials</a> by <a href="http://blog.kaggle.com/author/annamontoya/" rel="nofollow">Anna Montoya</a></li>
+<li><a href="https://www.kaggle.com/binghsu/predict-west-nile-virus/xgboost-starter-code-python-0-69" rel="nofollow">Ensemble Decision Tree with XGBoost</a> by <a href="https://www.kaggle.com/binghsu" rel="nofollow">Bing Xu</a></li>
+<li><a href="http://startup.ml/blog/xgboost" rel="nofollow">Notes on eXtreme Gradient Boosting</a> by ARSHAK NAVRUZYAN (<a href="https://github.com/startupml/koan/blob/master/eXtreme%20Gradient%20Boosting.ipynb">iPython Notebook</a>)</li>
+<li><a href="http://www.analyticsvidhya.com/blog/2016/03/complete-guide-parameter-tuning-xgboost-with-codes-python/" rel="nofollow">Complete Guide to Parameter Tuning in XGBoost</a> by Aarshay Jain</li>
+<li><a href="http://education.parrotprediction.teachable.com/courses/practical-xgboost-in-python" rel="nofollow">Practical XGBoost in Python online course</a> by Parrot Prediction</li>
+<li><a href="http://www.elenacuoco.com/2016/10/10/scala-spark-xgboost-classification/" rel="nofollow">Spark and XGBoost using Scala</a> by Elena Cuoco</li>
+</ul>
+<h2><a id="user-content-usecases" class="anchor" aria-hidden="true" href="https://github.com/dmlc/xgboost/tree/master/demo#usecases"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Usecases</h2>
+<p>If you have particular usecase of xgboost that you would like to highlight.
+Send a PR to add a one sentence description:)</p>
+<ul>
+<li>XGBoost is used in <a href="https://www.kaggle.com/scripts" rel="nofollow">Kaggle Script</a> to solve data science challenges.</li>
+<li>Distribute XGBoost as Rest API server from Jupyter notebook with <a href="https://github.com/bentoml/bentoml">BentoML</a>. <a href="https://github.com/bentoml/BentoML/blob/master/examples/xgboost-predict-titanic-survival/XGBoost-titanic-survival-prediction.ipynb">Link to notebook</a></li>
+<li><a href="http://docs.seldon.io/iris-demo.html" rel="nofollow">Seldon predictive service powered by XGBoost</a></li>
+<li>XGBoost Distributed is used in <a href="https://yq.aliyun.com/articles/6355" rel="nofollow">ODPS Cloud Service by Alibaba</a> (in Chinese)</li>
+<li>XGBoost is incoporated as part of <a href="https://dato.com/products/create/" rel="nofollow">Graphlab Create</a> for scalable machine learning.</li>
+<li><a href="https://www.52cs.org/" rel="nofollow">Hanjing Su</a> from Tencent data platform team: "We use distributed XGBoost for click through prediction in wechat shopping and lookalikes. The problems involve hundreds millions of users and thousands of features. XGBoost is cleanly designed and can be easily integrated into our production environment, reducing our cost in developments."</li>
+<li><a href="https://github.com/CNevd">CNevd</a> from autohome.com ad platform team: "Distributed XGBoost is used for click through rate prediction in our display advertising, XGBoost is highly efficient and flexible and can be easily used on our distributed platform, our ctr made a great improvement with hundred millions samples and millions features due to this awesome XGBoost"</li>
+</ul>
+<h2><a id="user-content-tools-using-xgboost" class="anchor" aria-hidden="true" href="https://github.com/dmlc/xgboost/tree/master/demo#tools-using-xgboost"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Tools using XGBoost</h2>
+<ul>
+<li><a href="https://github.com/mpearmain/BayesBoost">BayesBoost</a> - Bayesian Optimization using xgboost and sklearn API</li>
+<li><a href="https://github.com/vatsan/gp_xgboost_gridsearch">gp_xgboost_gridsearch</a> - In-database parallel grid-search for XGBoost on <a href="https://github.com/greenplum-db/gpdb">Greenplum</a> using PL/Python</li>
+<li><a href="https://github.com/rhiever/tpot">tpot</a> - A Python tool that automatically creates and optimizes machine learning pipelines using genetic programming.</li>
+</ul>
+<h2><a id="user-content-integrations-with-3rd-party-software" class="anchor" aria-hidden="true" href="https://github.com/dmlc/xgboost/tree/master/demo#integrations-with-3rd-party-software"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Integrations with 3rd party software</h2>
+<p>Open source integrations with XGBoost:</p>
+<ul>
+<li><a href="http://neptune.ai/" rel="nofollow">Neptune.ai</a> - Experiment management and collaboration tool for ML/DL/RL specialists. Integration has a form of the <a href="https://docs.neptune.ai/integrations/xgboost.html" rel="nofollow">XGBoost callback</a> that automatically logs training and evaluation metrics, as well as saved model (booster), feature importance chart and visualized trees.</li>
+<li><a href="https://optuna.org/" rel="nofollow">Optuna</a> - An open source hyperparameter optimization framework to automate hyperparameter search. Optuna integrates with XGBoost in the <a href="https://optuna.readthedocs.io/en/stable/reference/integration.html#optuna.integration.XGBoostPruningCallback" rel="nofollow">XGBoostPruningCallback</a> that let users easily prune unpromising trials.</li>
+</ul>
+<h2><a id="user-content-awards" class="anchor" aria-hidden="true" href="https://github.com/dmlc/xgboost/tree/master/demo#awards"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Awards</h2>
+<ul>
+<li><a href="http://stat-computing.org/awards/jmc/winners.html" rel="nofollow">John Chambers Award</a> - 2016 Winner: XGBoost R Package, by Tong He (Simon Fraser University) and Tianqi Chen (University of Washington)</li>
+<li><a href="https://www.infoworld.com/article/3336072/application-development/infoworlds-2019-technology-of-the-year-award-winners.html" rel="nofollow">InfoWorld’s 2019 Technology of the Year Award</a></li>
+</ul>
+<h2><a id="user-content-windows-binaries" class="anchor" aria-hidden="true" href="https://github.com/dmlc/xgboost/tree/master/demo#windows-binaries"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Windows Binaries</h2>
+<p>Unofficial windows binaries and instructions on how to use them are hosted on <a href="http://www.picnet.com.au/blogs/guido/post/2016/09/22/xgboost-windows-x64-binaries-for-download/" rel="nofollow">Guido Tapia's blog</a></p>
+</article>
+      </div>
+  </div>
+
+
+
+  </div>
+</div>
+
+    </main>
+  </div>
+  
+
+  </div>
+
+        
+<div class="footer container-xl width-full p-responsive" role="contentinfo">
+  <div class="position-relative d-flex flex-row-reverse flex-lg-row flex-wrap flex-lg-nowrap flex-justify-center flex-lg-justify-between pt-6 pb-2 mt-6 f6 text-gray border-top border-gray-light ">
+    <ul class="list-style-none d-flex flex-wrap col-12 col-lg-5 flex-justify-center flex-lg-justify-between mb-2 mb-lg-0">
+      <li class="mr-3 mr-lg-0">© 2020 GitHub, Inc.</li>
+        <li class="mr-3 mr-lg-0"><a data-ga-click="Footer, go to terms, text:terms" href="https://github.com/site/terms">Terms</a></li>
+        <li class="mr-3 mr-lg-0"><a data-ga-click="Footer, go to privacy, text:privacy" href="https://github.com/site/privacy">Privacy</a></li>
+        <li class="mr-3 mr-lg-0"><a data-ga-click="Footer, go to security, text:security" href="https://github.com/security">Security</a></li>
+        <li class="mr-3 mr-lg-0"><a href="https://githubstatus.com/" data-ga-click="Footer, go to status, text:status">Status</a></li>
+        <li><a data-ga-click="Footer, go to help, text:help" href="https://help.github.com/">Help</a></li>
+
+    </ul>
+
+    <a aria-label="Homepage" title="GitHub" class="footer-octicon d-none d-lg-block mx-lg-4" href="https://github.com/">
+      <svg height="24" class="octicon octicon-mark-github" viewBox="0 0 16 16" version="1.1" width="24" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+</a>
+   <ul class="list-style-none d-flex flex-wrap col-12 col-lg-5 flex-justify-center flex-lg-justify-between mb-2 mb-lg-0">
+        <li class="mr-3 mr-lg-0"><a data-ga-click="Footer, go to contact, text:contact" href="https://github.com/contact">Contact GitHub</a></li>
+        <li class="mr-3 mr-lg-0"><a href="https://github.com/pricing" data-ga-click="Footer, go to Pricing, text:Pricing">Pricing</a></li>
+      <li class="mr-3 mr-lg-0"><a href="https://developer.github.com/" data-ga-click="Footer, go to api, text:api">API</a></li>
+      <li class="mr-3 mr-lg-0"><a href="https://training.github.com/" data-ga-click="Footer, go to training, text:training">Training</a></li>
+        <li class="mr-3 mr-lg-0"><a href="https://github.blog/" data-ga-click="Footer, go to blog, text:blog">Blog</a></li>
+        <li><a data-ga-click="Footer, go to about, text:about" href="https://github.com/about">About</a></li>
+    </ul>
+  </div>
+  <div class="d-flex flex-justify-center pb-6">
+    <span class="f6 text-gray-light"></span>
+  </div>
+</div>
+
+
+
+  <div id="ajax-error-message" class="ajax-error-message flash flash-error">
+    <svg class="octicon octicon-alert" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.22 1.754a.25.25 0 00-.44 0L1.698 13.132a.25.25 0 00.22.368h12.164a.25.25 0 00.22-.368L8.22 1.754zm-1.763-.707c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0114.082 15H1.918a1.75 1.75 0 01-1.543-2.575L6.457 1.047zM9 11a1 1 0 11-2 0 1 1 0 012 0zm-.25-5.25a.75.75 0 00-1.5 0v2.5a.75.75 0 001.5 0v-2.5z"></path></svg>
+    <button type="button" class="flash-close js-ajax-error-dismiss" aria-label="Dismiss error">
+      <svg class="octicon octicon-x" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 011.06 0L8 6.94l3.22-3.22a.75.75 0 111.06 1.06L9.06 8l3.22 3.22a.75.75 0 11-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 01-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 010-1.06z"></path></svg>
+    </button>
+    You can’t perform that action at this time.
+  </div>
+
+
+    <script crossorigin="anonymous" async="async" integrity="sha512-WcQmT2vhcClFVOaaAJV/M+HqsJ2Gq/myvl6F3gCVBxykazXTs+i5fvxncSXwyG1CSfcrqmLFw/R/bmFYzprX2A==" type="application/javascript" id="js-conditional-compat" data-src="https://github.githubassets.com/assets/compat-bootstrap-59c4264f.js"></script>
+    <script crossorigin="anonymous" integrity="sha512-JMnLGeCKFvgY5879X3TkrUTgJJCu6JiFcVyguDmvnfS8mo0CO97NZvs1eAQO1K40HFAWy/lHqr7U6lRGiq/SOA==" type="application/javascript" src="./xgboost_demo at master · dmlc_xgboost · GitHub_files/environment-bootstrap-24c9cb19.js.download"></script>
+    <script crossorigin="anonymous" async="async" integrity="sha512-XWz5HaaTTrTqPbip/poDC93vFrDNSzLklq8U2NDvVKkqFnGnjKWXc4oqIroQ7niVJGouPSNavRlVOj9sG46GDQ==" type="application/javascript" src="./xgboost_demo at master · dmlc_xgboost · GitHub_files/vendor-5d6cf91d.js.download"></script>
+    <script crossorigin="anonymous" async="async" integrity="sha512-cFdsPtFdG3JFLJrPCw2IFgIdnECd3F1B+KWzwEih5VSTbixIO/Ymjon6nfNo/EQihv3x6UYYGbMet6XocJs60Q==" type="application/javascript" src="./xgboost_demo at master · dmlc_xgboost · GitHub_files/frameworks-70576c3e.js.download"></script>
+    
+    <script crossorigin="anonymous" async="async" integrity="sha512-hiQKrdaN20gQYh90UsWfjedOta9wgxDzNwC3QOcjeJxwiJ194/iE/Fpp9UaI3CvUYz7dqtvHAkPrQLcdJUXw9Q==" type="application/javascript" src="./xgboost_demo at master · dmlc_xgboost · GitHub_files/github-bootstrap-86240aad.js.download"></script>
+    
+      <script crossorigin="anonymous" async="async" integrity="sha512-4GcSWGoe36+BoWho4gtJcByZe8j43w+lt2/PDe3rmBxRVSgD29YipDwuIywe8fvOd2b2CszBqaPGxSznUtE3Xg==" type="application/javascript" data-module-id="./drag-drop.js" data-src="https://github.githubassets.com/assets/drag-drop-e0671258.js"></script>
+      <script crossorigin="anonymous" async="async" integrity="sha512-2k8dDHk0yt52uKvOvgc9cwOXOeJhxBfVP5kPS2BrCdytDmtEIJ2yone26vFENAyk1a2aFQ7KDgEevRQafuAf8A==" type="application/javascript" data-module-id="./gist-vendor.js" data-src="https://github.githubassets.com/assets/gist-vendor-da4f1d0c.js"></script>
+      <script crossorigin="anonymous" async="async" integrity="sha512-iv+4yAluOjiG50ZypUBIWIUCRDo6JEBf2twvmd5AelxgPQJO/XC1oNMGTMdDfKt30p7G7fHEOTZ2utHWDJ9PPQ==" type="application/javascript" data-module-id="./randomColor.js" data-src="https://github.githubassets.com/assets/randomColor-8affb8c8.js"></script>
+    
+    
+  <div class="js-stale-session-flash flash flash-warn flash-banner" hidden="">
+    <svg class="octicon octicon-alert" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.22 1.754a.25.25 0 00-.44 0L1.698 13.132a.25.25 0 00.22.368h12.164a.25.25 0 00.22-.368L8.22 1.754zm-1.763-.707c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0114.082 15H1.918a1.75 1.75 0 01-1.543-2.575L6.457 1.047zM9 11a1 1 0 11-2 0 1 1 0 012 0zm-.25-5.25a.75.75 0 00-1.5 0v2.5a.75.75 0 001.5 0v-2.5z"></path></svg>
+    <span class="js-stale-session-flash-signed-in" hidden="">You signed in with another tab or window. <a href="https://github.com/dmlc/xgboost/tree/master/demo">Reload</a> to refresh your session.</span>
+    <span class="js-stale-session-flash-signed-out" hidden="">You signed out in another tab or window. <a href="https://github.com/dmlc/xgboost/tree/master/demo">Reload</a> to refresh your session.</span>
+  </div>
+  <template id="site-details-dialog"></template>
+
+  <div class="Popover js-hovercard-content position-absolute" style="display: none; outline: none;" tabindex="0">
+  <div class="Popover-message Popover-message--bottom-left Popover-message--large Box box-shadow-large" style="width:360px;"></div>
+</div>
+
+
+  
+
+
+<div aria-live="polite" class="sr-only"></div></body></html>

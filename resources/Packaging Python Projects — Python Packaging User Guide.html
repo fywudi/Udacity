@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<!-- saved from url=(0058)https://packaging.python.org/tutorials/packaging-projects/ -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>Packaging Python Projects — Python Packaging User Guide</title>
+    <link rel="stylesheet" href="./Packaging Python Projects — Python Packaging User Guide_files/pypa.css" type="text/css">
+    <link rel="stylesheet" href="./Packaging Python Projects — Python Packaging User Guide_files/pygments.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="./Packaging Python Projects — Python Packaging User Guide_files/badge_only.css">
+    
+    <script async="" src="./Packaging Python Projects — Python Packaging User Guide_files/analytics.js.download"></script><script type="text/javascript" id="documentation_options" data-url_root="../../" src="./Packaging Python Projects — Python Packaging User Guide_files/documentation_options.js.download"></script>
+    <script type="text/javascript" src="./Packaging Python Projects — Python Packaging User Guide_files/jquery.js.download"></script>
+    <script type="text/javascript" src="./Packaging Python Projects — Python Packaging User Guide_files/underscore.js.download"></script>
+    <script type="text/javascript" src="./Packaging Python Projects — Python Packaging User Guide_files/doctools.js.download"></script>
+    <script type="text/javascript" src="./Packaging Python Projects — Python Packaging User Guide_files/language_data.js.download"></script>
+    <script async="async" type="text/javascript" src="./Packaging Python Projects — Python Packaging User Guide_files/readthedocs-doc-embed.js.download"></script>
+    
+    <script type="text/javascript" src="./Packaging Python Projects — Python Packaging User Guide_files/sidebar.js.download"></script>
+    
+    <link rel="index" title="Index" href="https://packaging.python.org/genindex/">
+    <link rel="search" title="Search" href="https://packaging.python.org/search/">
+    <link rel="next" title="Creating Documentation" href="https://packaging.python.org/tutorials/creating-documentation/">
+    <link rel="prev" title="Managing Application Dependencies" href="https://packaging.python.org/tutorials/managing-dependencies/">
+    <link rel="shortcut icon" type="image/png" href="./Packaging Python Projects — Python Packaging User Guide_files/py.png">
+    
+    <script type="text/javascript" src="./Packaging Python Projects — Python Packaging User Guide_files/copybutton.js.download"></script>
+    
+     
+
+  
+<!-- RTD Extra Head -->
+
+<!-- 
+Always link to the latest version, as canonical.
+http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="http://packaging.python.org/tutorials/packaging-projects/">
+
+<link rel="stylesheet" href="./Packaging Python Projects — Python Packaging User Guide_files/readthedocs-doc-embed.css" type="text/css">
+
+<script type="text/javascript" src="./Packaging Python Projects — Python Packaging User Guide_files/readthedocs-data.js.download"></script>
+
+<!-- Add page-specific data, which must exist in the page js, not global -->
+<script type="text/javascript">
+READTHEDOCS_DATA['page'] = "tutorials/packaging-projects"
+READTHEDOCS_DATA['source_suffix'] = ".rst"
+</script>
+
+<script type="text/javascript" src="./Packaging Python Projects — Python Packaging User Guide_files/readthedocs-analytics.js.download" async="async"></script>
+
+<!-- end RTD <extrahead> -->
+</head><body><div id="StayFocusd-infobar" style="display: none; top: 4200px;">
+    <img src="chrome-extension://laankejkbhbdhmipfmgcngdelahlfoji/common/img/eye_19x19_red.png">
+    <span id="StayFocusd-infobar-msg"></span>
+    <span id="StayFocusd-infobar-links">
+        <a id="StayFocusd-infobar-never-show">hide forever</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+        <a id="StayFocusd-infobar-hide">hide once</a>
+    </span>
+</div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="https://packaging.python.org/genindex/" title="General Index" accesskey="I">index</a></li>
+        <li class="right">
+          <a href="https://packaging.python.org/tutorials/creating-documentation/" title="Creating Documentation" accesskey="N">next</a> |</li>
+        <li class="right">
+          <a href="https://packaging.python.org/tutorials/managing-dependencies/" title="Managing Application Dependencies" accesskey="P">previous</a> |</li>
+    <li><img src="./Packaging Python Projects — Python Packaging User Guide_files/py.png" alt="" style="vertical-align: middle; margin-top: -1px"></li>
+    <li><a href="https://pypa.io/">PyPA</a> »</li>
+    
+    <a href="https://packaging.python.org/">Python Packaging User Guide</a> »
+    
+
+          <li class="nav-item nav-item-1"><a href="https://packaging.python.org/tutorials/" accesskey="U">Tutorials</a> »</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="" role="search">
+        <form class="inline-search" action="https://packaging.python.org/search/" method="get">
+          <input placeholder="Quick search" type="text" name="q">
+          <input type="submit" value="Go">
+          <input type="hidden" name="check_keywords" value="yes">
+          <input type="hidden" name="area" value="default">
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="packaging-python-projects">
+<h1>Packaging Python Projects<a class="headerlink" href="https://packaging.python.org/tutorials/packaging-projects/#packaging-python-projects" title="Permalink to this headline">¶</a></h1>
+<p>This tutorial walks you through how to package a simple Python project. It will
+show you how to add the necessary files and structure to create the package, how
+to build the package, and how to upload it to the Python Package Index.</p>
+<div class="section" id="a-simple-project">
+<h2>A simple project<a class="headerlink" href="https://packaging.python.org/tutorials/packaging-projects/#a-simple-project" title="Permalink to this headline">¶</a></h2>
+<p>This tutorial uses a simple project named <code class="docutils literal notranslate"><span class="pre">example_pkg</span></code>. If you are unfamiliar
+with Python’s modules and <a class="reference internal" href="https://packaging.python.org/glossary/#term-import-package"><span class="xref std std-term">import packages</span></a>, take a few
+minutes to read over the <a class="reference external" href="https://docs.python.org/3/tutorial/modules.html#packages">Python documentation for packages and modules</a>. Even if you already have a project that you want to package up, we recommend following this tutorial as-is using this example package and then trying with your own package.</p>
+<p>To create this project locally, create the following file structure:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>packaging_tutorial
+└── example_pkg
+ &nbsp;&nbsp; └── __init__.py
+</pre></div>
+</div>
+<p>Once you create this structure, you’ll want to run all of the commands in this
+tutorial within the top-level folder - so be sure to <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">packaging_tutorial</span></code>.</p>
+<p><code class="file docutils literal notranslate"><span class="pre">example_pkg/__init__.py</span></code> is required to import the directory as a package,
+and can simply be an empty file.</p>
+</div>
+<div class="section" id="creating-the-package-files">
+<h2>Creating the package files<a class="headerlink" href="https://packaging.python.org/tutorials/packaging-projects/#creating-the-package-files" title="Permalink to this headline">¶</a></h2>
+<p>You will now create a handful of files to package up this project and prepare it
+for distribution. Create the new files listed below and place them in the project’s root directory
+- you will add content to them in the following steps.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>packaging_tutorial
+├── LICENSE
+├── README.md
+├── example_pkg
+│&nbsp;&nbsp; └── __init__.py
+├── setup.py
+└── tests
+</pre></div>
+</div>
+</div>
+<div class="section" id="creating-a-test-folder">
+<h2>Creating a test folder<a class="headerlink" href="https://packaging.python.org/tutorials/packaging-projects/#creating-a-test-folder" title="Permalink to this headline">¶</a></h2>
+<p><code class="file docutils literal notranslate"><span class="pre">tests/</span></code> is a placeholder for unit test files. Leave it empty for now.</p>
+</div>
+<div class="section" id="creating-setup-py">
+<h2>Creating setup.py<a class="headerlink" href="https://packaging.python.org/tutorials/packaging-projects/#creating-setup-py" title="Permalink to this headline">¶</a></h2>
+<p><code class="file docutils literal notranslate"><span class="pre">setup.py</span></code> is the build script for <a class="reference internal" href="https://packaging.python.org/key_projects/#setuptools"><span class="std std-ref">setuptools</span></a>. It tells setuptools
+about your package (such as the name and version) as well as which code files
+to include.</p>
+<p>Open <code class="file docutils literal notranslate"><span class="pre">setup.py</span></code> and enter the following content. Update the package name to include your username (for example, <code class="docutils literal notranslate"><span class="pre">example-pkg-theacodes</span></code>), this ensures that you have a unique package name and that your package doesn’t conflict with packages uploaded by other people following this tutorial.</p>
+<div class="highlight-python notranslate" style="position: relative;"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">setuptools</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"README.md"</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">fh</span><span class="p">:</span>
+    <span class="n">long_description</span> <span class="o">=</span> <span class="n">fh</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="n">setuptools</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">"example-pkg-YOUR-USERNAME-HERE"</span><span class="p">,</span> <span class="c1"># Replace with your own username</span>
+    <span class="n">version</span><span class="o">=</span><span class="s2">"0.0.1"</span><span class="p">,</span>
+    <span class="n">author</span><span class="o">=</span><span class="s2">"Example Author"</span><span class="p">,</span>
+    <span class="n">author_email</span><span class="o">=</span><span class="s2">"author@example.com"</span><span class="p">,</span>
+    <span class="n">description</span><span class="o">=</span><span class="s2">"A small example package"</span><span class="p">,</span>
+    <span class="n">long_description</span><span class="o">=</span><span class="n">long_description</span><span class="p">,</span>
+    <span class="n">long_description_content_type</span><span class="o">=</span><span class="s2">"text/markdown"</span><span class="p">,</span>
+    <span class="n">url</span><span class="o">=</span><span class="s2">"https://github.com/pypa/sampleproject"</span><span class="p">,</span>
+    <span class="n">packages</span><span class="o">=</span><span class="n">setuptools</span><span class="o">.</span><span class="n">find_packages</span><span class="p">(),</span>
+    <span class="n">classifiers</span><span class="o">=</span><span class="p">[</span>
+        <span class="s2">"Programming Language :: Python :: 3"</span><span class="p">,</span>
+        <span class="s2">"License :: OSI Approved :: MIT License"</span><span class="p">,</span>
+        <span class="s2">"Operating System :: OS Independent"</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="n">python_requires</span><span class="o">=</span><span class="s1">'&gt;=3.6'</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="xref py py-func docutils literal notranslate"><span class="pre">setup()</span></code> takes several arguments. This example package uses a relatively
+minimal set:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code> is the <em>distribution name</em> of your package. This can be any name as long as only
+contains letters, numbers, <code class="docutils literal notranslate"><span class="pre">_</span></code> , and <code class="docutils literal notranslate"><span class="pre">-</span></code>. It also must not already be
+taken on pypi.org. <strong>Be sure to update this with your username,</strong> as this ensures you won’t try to upload a package with the same name as one which already exists when you upload the package.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">version</span></code> is the package version see <span class="target" id="index-0"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0440"><strong>PEP 440</strong></a> for more details on
+versions.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">author</span></code> and <code class="docutils literal notranslate"><span class="pre">author_email</span></code> are used to identify the author of the
+package.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">description</span></code> is a short, one-sentence summary of the package.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">long_description</span></code> is a detailed description of the package. This is
+shown on the package detail package on the Python Package Index. In
+this case, the long description is loaded from <code class="file docutils literal notranslate"><span class="pre">README.md</span></code> which is
+a common pattern.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">long_description_content_type</span></code> tells the index what type of markup is
+used for the long description. In this case, it’s Markdown.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">url</span></code> is the URL for the homepage of the project. For many projects, this
+will just be a link to GitHub, GitLab, Bitbucket, or similar code hosting
+service.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">packages</span></code> is a list of all Python <a class="reference internal" href="https://packaging.python.org/glossary/#term-import-package"><span class="xref std std-term">import packages</span></a> that should be included in the <a class="reference internal" href="https://packaging.python.org/glossary/#term-distribution-package"><span class="xref std std-term">distribution package</span></a>.
+Instead of listing each package manually, we can use <code class="xref py py-func docutils literal notranslate"><span class="pre">find_packages()</span></code>
+to automatically discover all packages and subpackages. In this case, the
+list of packages will be <cite>example_pkg</cite> as that’s the only package present.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">classifiers</span></code> gives the index and <a class="reference internal" href="https://packaging.python.org/key_projects/#pip"><span class="std std-ref">pip</span></a> some additional metadata
+about your package. In this case, the package is only compatible with Python
+3, is licensed under the MIT license, and is OS-independent. You should
+always include at least which version(s) of Python your package works on,
+which license your package is available under, and which operating systems
+your package will work on. For a complete list of classifiers, see
+<a class="reference external" href="https://pypi.org/classifiers/">https://pypi.org/classifiers/</a>.</p></li>
+</ul>
+<p>There are many more than the ones mentioned here. See
+<a class="reference internal" href="https://packaging.python.org/guides/distributing-packages-using-setuptools/"><span class="doc">Packaging and distributing projects</span></a> for more details.</p>
+</div>
+<div class="section" id="creating-readme-md">
+<h2>Creating README.md<a class="headerlink" href="https://packaging.python.org/tutorials/packaging-projects/#creating-readme-md" title="Permalink to this headline">¶</a></h2>
+<p>Open <code class="file docutils literal notranslate"><span class="pre">README.md</span></code> and enter the following content. You can customize this
+if you’d like.</p>
+<div class="highlight-md notranslate"><div class="highlight"><pre><span></span><span class="gh">#</span> Example Package
+
+This is a simple example package. You can use
+[<span class="nt">Github-flavored Markdown</span>](<span class="na">https://guides.github.com/features/mastering-markdown/</span>)
+to write your content.
+</pre></div>
+</div>
+</div>
+<div class="section" id="creating-a-license">
+<h2>Creating a LICENSE<a class="headerlink" href="https://packaging.python.org/tutorials/packaging-projects/#creating-a-license" title="Permalink to this headline">¶</a></h2>
+<p>It’s important for every package uploaded to the Python Package Index to include
+a license. This tells users who install your package the terms under which they
+can use your package. For help picking a license, see
+<a class="reference external" href="https://choosealicense.com/">https://choosealicense.com/</a>. Once you have chosen a license, open
+<code class="file docutils literal notranslate"><span class="pre">LICENSE</span></code> and enter the license text. For example, if you had chosen the
+MIT license:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Copyright (c) 2018 The Python Packaging Authority
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+</pre></div>
+</div>
+</div>
+<div class="section" id="generating-distribution-archives">
+<span id="generating-archives"></span><h2>Generating distribution archives<a class="headerlink" href="https://packaging.python.org/tutorials/packaging-projects/#generating-distribution-archives" title="Permalink to this headline">¶</a></h2>
+<p>The next step is to generate <a class="reference internal" href="https://packaging.python.org/glossary/#term-distribution-package"><span class="xref std std-term">distribution packages</span></a> for the package. These are archives that are uploaded to the Package
+Index and can be installed by <a class="reference internal" href="https://packaging.python.org/key_projects/#pip"><span class="std std-ref">pip</span></a>.</p>
+<p>Make sure you have the latest versions of <code class="docutils literal notranslate"><span class="pre">setuptools</span></code> and <code class="docutils literal notranslate"><span class="pre">wheel</span></code>
+installed:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install --user --upgrade setuptools wheel
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>IF you have trouble installing these, see the
+<a class="reference internal" href="https://packaging.python.org/tutorials/installing-packages/"><span class="doc">Installing Packages</span></a> tutorial.</p>
+</div>
+<p>Now run this command from the same directory where <code class="file docutils literal notranslate"><span class="pre">setup.py</span></code> is located:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 setup.py sdist bdist_wheel
+</pre></div>
+</div>
+<p>This command should output a lot of text and once completed should generate two
+files in the <code class="file docutils literal notranslate"><span class="pre">dist</span></code> directory:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>dist/
+  example_pkg_YOUR_USERNAME_HERE-0.0.1-py3-none-any.whl
+  example_pkg_YOUR_USERNAME_HERE-0.0.1.tar.gz
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you run into trouble here, please copy the output and file an issue
+over on <a class="reference external" href="https://github.com/pypa/packaging-problems/issues/new?title=Trouble+following+packaging+libraries+tutorial">packaging problems</a> and we’ll do our best to help you!</p>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">tar.gz</span></code> file is a <a class="reference internal" href="https://packaging.python.org/glossary/#term-source-archive"><span class="xref std std-term">source archive</span></a> whereas the <code class="docutils literal notranslate"><span class="pre">.whl</span></code> file is a
+<a class="reference internal" href="https://packaging.python.org/glossary/#term-built-distribution"><span class="xref std std-term">built distribution</span></a>. Newer <a class="reference internal" href="https://packaging.python.org/key_projects/#pip"><span class="std std-ref">pip</span></a> versions preferentially install
+built distributions, but will fall back to source archives if needed. You
+should always upload a source archive and provide built archives for the
+platforms your project is compatible with. In this case, our example package is
+compatible with Python on any platform so only one built distribution is needed.</p>
+</div>
+<div class="section" id="uploading-the-distribution-archives">
+<h2>Uploading the distribution archives<a class="headerlink" href="https://packaging.python.org/tutorials/packaging-projects/#uploading-the-distribution-archives" title="Permalink to this headline">¶</a></h2>
+<p>Finally, it’s time to upload your package to the Python Package Index!</p>
+<p>The first thing you’ll need to do is register an account on <cite>Test PyPI</cite>. Test
+PyPI is a separate instance of the package index intended for testing and
+experimentation. It’s great for things like this tutorial where we don’t
+necessarily want to upload to the real index. To register an account, go to
+<a class="reference external" href="https://test.pypi.org/account/register/">https://test.pypi.org/account/register/</a> and complete the steps on that page.
+You will also need to verify your email address before you’re able to upload
+any packages.  For more details on Test PyPI, see
+<a class="reference internal" href="https://packaging.python.org/guides/using-testpypi/"><span class="doc">Using TestPyPI</span></a>.</p>
+<p>Now you’ll create a PyPI <a class="reference external" href="https://test.pypi.org/help/#apitoken">API token</a> so you will be able to securely upload
+your project.</p>
+<p>Go to <a class="reference external" href="https://test.pypi.org/manage/account/#api-tokens">https://test.pypi.org/manage/account/#api-tokens</a> and create a new
+<a class="reference external" href="https://test.pypi.org/help/#apitoken">API token</a>; don’t limit its scope to a particular project, since you
+are creating a new project.</p>
+<p><strong>Don’t close the page until you have copied and saved the token — you
+won’t see that token again.</strong></p>
+<p>Now that you are registered, you can use <a class="reference internal" href="https://packaging.python.org/key_projects/#twine"><span class="std std-ref">twine</span></a> to upload the
+distribution packages. You’ll need to install Twine:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install --user --upgrade twine
+</pre></div>
+</div>
+<p>Once installed, run Twine to upload all of the archives under <code class="file docutils literal notranslate"><span class="pre">dist</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m twine upload --repository testpypi dist/*
+</pre></div>
+</div>
+<p>You will be prompted for a username and password. For the username,
+use <code class="docutils literal notranslate"><span class="pre">__token__</span></code>. For the password, use the token value, including
+the <code class="docutils literal notranslate"><span class="pre">pypi-</span></code> prefix.</p>
+<p>After the command completes, you should see output similar to this:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Uploading distributions to https://test.pypi.org/legacy/
+Enter your username: <span class="o">[</span>your username<span class="o">]</span>
+Enter your password:
+Uploading example_pkg_YOUR_USERNAME_HERE-0.0.1-py3-none-any.whl
+<span class="m">100</span>%<span class="p">|</span>█████████████████████<span class="p">|</span> <span class="m">4</span>.65k/4.65k <span class="o">[</span><span class="m">00</span>:01&lt;<span class="m">00</span>:00, <span class="m">2</span>.88kB/s<span class="o">]</span>
+Uploading example_pkg_YOUR_USERNAME_HERE-0.0.1.tar.gz
+<span class="m">100</span>%<span class="p">|</span>█████████████████████<span class="p">|</span> <span class="m">4</span>.25k/4.25k <span class="o">[</span><span class="m">00</span>:01&lt;<span class="m">00</span>:00, <span class="m">3</span>.05kB/s<span class="o">]</span>
+</pre></div>
+</div>
+<p>Once uploaded your package should be viewable on TestPyPI, for example,
+<a class="reference external" href="https://test.pypi.org/project/example-pkg-YOUR-USERNAME-HERE">https://test.pypi.org/project/example-pkg-YOUR-USERNAME-HERE</a></p>
+</div>
+<div class="section" id="installing-your-newly-uploaded-package">
+<h2>Installing your newly uploaded package<a class="headerlink" href="https://packaging.python.org/tutorials/packaging-projects/#installing-your-newly-uploaded-package" title="Permalink to this headline">¶</a></h2>
+<p>You can use <a class="reference internal" href="https://packaging.python.org/key_projects/#pip"><span class="std std-ref">pip</span></a> to install your package and verify that it works.
+Create a new <a class="reference internal" href="https://packaging.python.org/key_projects/#virtualenv"><span class="std std-ref">virtualenv</span></a> (see <a class="reference internal" href="https://packaging.python.org/tutorials/installing-packages/"><span class="doc">Installing Packages</span></a> for
+detailed instructions) and install your package from TestPyPI:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install --index-url https://test.pypi.org/simple/ --no-deps example-pkg-YOUR-USERNAME-HERE
+</pre></div>
+</div>
+<p>Make sure to specify your username in the package name!</p>
+<p>pip should install the package from Test PyPI and the output should look
+something like this:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Collecting example-pkg-YOUR-USERNAME-HERE
+  Downloading https://test-files.pythonhosted.org/packages/.../example-pkg-YOUR-USERNAME-HERE-0.0.1-py3-none-any.whl
+Installing collected packages: example-pkg-YOUR-USERNAME-HERE
+Successfully installed example-pkg-YOUR-USERNAME-HERE-0.0.1
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This example uses <code class="docutils literal notranslate"><span class="pre">--index-url</span></code> flag to specify TestPyPI instead of live PyPI. Additionally, it specifies <code class="docutils literal notranslate"><span class="pre">--no-deps</span></code>. Since TestPyPI doesn’t have the same packages as the live PyPI, it’s possible that attempting to install dependencies may fail or install something unexpected. While our example package doesn’t have any dependencies, it’s a good practice to avoid installing dependencies when using TestPyPI.</p>
+</div>
+<p>You can test that it was installed correctly by importing the package.
+Run the Python interpreter (make sure you’re still in your virtualenv):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python
+</pre></div>
+</div>
+<p>and from the interpreter shell import the package:</p>
+<div class="highlight-python notranslate" style="position: relative;"><div class="highlight"><span class="copybutton" title="Hide the prompts and output" style="cursor: pointer; position: absolute; top: 0px; right: 0px; border-color: rgb(170, 204, 153); border-style: solid; border-width: 1px; color: rgb(170, 204, 153); font-family: monospace; padding-left: 0.2em; padding-right: 0.2em; border-radius: 0px 3px 0px 0px;">&gt;&gt;&gt;</span><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">example_pkg</span>
+</pre></div>
+</div>
+<p>Note that the <a class="reference internal" href="https://packaging.python.org/glossary/#term-import-package"><span class="xref std std-term">import package</span></a> is <code class="docutils literal notranslate"><span class="pre">example_pkg</span></code> regardless of what name you gave your <a class="reference internal" href="https://packaging.python.org/glossary/#term-distribution-package"><span class="xref std std-term">distribution package</span></a>
+in <code class="file docutils literal notranslate"><span class="pre">setup.py</span></code> (in this case, <code class="docutils literal notranslate"><span class="pre">example-pkg-YOUR-USERNAME-HERE</span></code>).</p>
+</div>
+<div class="section" id="next-steps">
+<h2>Next steps<a class="headerlink" href="https://packaging.python.org/tutorials/packaging-projects/#next-steps" title="Permalink to this headline">¶</a></h2>
+<p><strong>Congratulations, you’ve packaged and distributed a Python project!</strong>
+✨ 🍰 ✨</p>
+<p>Keep in mind that this tutorial showed you how to upload your package to Test
+PyPI, which isn’t a permanent storage. The Test system occasionally deletes
+packages and accounts. It is best to use Test PyPI for testing and experiments like this tutorial.</p>
+<p>When you are ready to upload a real package to the Python Package Index you can
+do much the same as you did in this tutorial, but with these important
+differences:</p>
+<ul class="simple">
+<li><p>Choose a memorable and unique name for your package. You don’t have to append
+your username as you did in the tutorial.</p></li>
+<li><p>Register an account on <a class="reference external" href="https://pypi.org/">https://pypi.org</a> - note that these are two separate
+servers and the login details from the test server are not shared with the
+main server.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">twine</span> <span class="pre">upload</span> <span class="pre">dist/*</span></code> to upload your package and enter your credentials
+for the account you registered on the real PyPI.  Now that you’re uploading
+the package in production, you don’t need to specify <code class="docutils literal notranslate"><span class="pre">--repository</span></code>; the
+package will upload to <a class="reference external" href="https://pypi.org/">https://pypi.org/</a> by default.</p></li>
+<li><p>Install your package from the real PyPI using <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">[your-package]</span></code>.</p></li>
+</ul>
+<p>At this point if you want to read more on packaging Python libraries here are
+some things you can do:</p>
+<ul class="simple">
+<li><p>Read more about using <a class="reference internal" href="https://packaging.python.org/key_projects/#setuptools"><span class="std std-ref">setuptools</span></a> to package libraries in
+<a class="reference internal" href="https://packaging.python.org/guides/distributing-packages-using-setuptools/"><span class="doc">Packaging and distributing projects</span></a>.</p></li>
+<li><p>Read about <a class="reference internal" href="https://packaging.python.org/guides/packaging-binary-extensions/"><span class="doc">Packaging binary extensions</span></a>.</p></li>
+<li><p>Consider alternatives to <a class="reference internal" href="https://packaging.python.org/key_projects/#setuptools"><span class="std std-ref">setuptools</span></a> such as <a class="reference internal" href="https://packaging.python.org/key_projects/#flit"><span class="std std-ref">flit</span></a>, <a class="reference external" href="https://github.com/ofek/hatch">hatch</a>,
+and <a class="reference external" href="https://github.com/python-poetry/poetry">poetry</a>.</p></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper" style="float: left; margin-right: 0px; width: 202px; top: 4120.17px;">
+<h3><a href="https://packaging.python.org/">Table Of Contents</a></h3>
+
+
+  
+
+
+  <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="https://packaging.python.org/overview/">An Overview of Packaging for Python</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="https://packaging.python.org/tutorials/">Tutorials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="https://packaging.python.org/tutorials/installing-packages/">Installing Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://packaging.python.org/tutorials/managing-dependencies/">Managing Application Dependencies</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="https://packaging.python.org/tutorials/packaging-projects/#">Packaging Python Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://packaging.python.org/tutorials/creating-documentation/">Creating Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="https://packaging.python.org/guides/">Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://packaging.python.org/discussions/">Discussions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://packaging.python.org/specifications/">PyPA specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://packaging.python.org/key_projects/">Project Summaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://packaging.python.org/glossary/">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://packaging.python.org/support/">How to Get Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://packaging.python.org/contribute/">Contribute to this guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://packaging.python.org/news/">News</a></li>
+</ul>
+
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="https://packaging.python.org/tutorials/managing-dependencies/" title="previous chapter">Managing Application Dependencies</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="https://packaging.python.org/tutorials/creating-documentation/" title="next chapter">Creating Documentation</a></p>
+        </div>
+      <div id="sidebarbutton" title="Collapse sidebar" style="border-radius: 0px 5px 5px 0px; color: rgb(68, 68, 68); background-color: rgb(204, 204, 204); font-size: 1.2em; cursor: pointer; height: 5660.25px; padding-top: 1px; padding-left: 1px; margin-left: 218px;"><span style="display: block; position: fixed; top: 434px;">«</span></div></div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="https://packaging.python.org/genindex/" title="General Index">index</a></li>
+        <li class="right">
+          <a href="https://packaging.python.org/tutorials/creating-documentation/" title="Creating Documentation">next</a> |</li>
+        <li class="right">
+          <a href="https://packaging.python.org/tutorials/managing-dependencies/" title="Managing Application Dependencies">previous</a> |</li>
+    <li><img src="./Packaging Python Projects — Python Packaging User Guide_files/py.png" alt="" style="vertical-align: middle; margin-top: -1px"></li>
+    <li><a href="https://pypa.io/">PyPA</a> »</li>
+    
+    <a href="https://packaging.python.org/">Python Packaging User Guide</a> »
+    
+
+          <li class="nav-item nav-item-1"><a href="https://packaging.python.org/tutorials/">Tutorials</a> »</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="" role="search">
+        <form class="inline-search" action="https://packaging.python.org/search/" method="get">
+          <input placeholder="Quick search" type="text" name="q">
+          <input type="submit" value="Go">
+          <input type="hidden" name="check_keywords" value="yes">
+          <input type="hidden" name="area" value="default">
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    © <a href="https://packaging.python.org/copyright/">Copyright</a> 2013–2019, PyPA.
+    <br>
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br>
+    <br>
+
+    Last updated on Jun 26, 2020.
+    <a href="https://github.com/pypa/python-packaging-user-guide/issues">Found a bug</a>?
+    <br>
+
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.1.2.
+    </div>
+
+  
+<div id="rtd-dgnp7cuh"><div class="ethical-fixedfooter"><div class="ethical-content"><div class="ethical-close"><a href="javascript:$(&#39;.ethical-fixedfooter&#39;).hide()" aria-label="Close Ad">×</a></div><img src="./Packaging Python Projects — Python Packaging User Guide_files/saved_resource" class="ethical-pixel"><div><a href="https://server.ethicalads.io/proxy/click/928/esYFH74Br37QgLq6/" rel="nofollow" target="_blank"><span class="ethical-text"></span></a><a href="https://server.ethicalads.io/proxy/click/928/esYFH74Br37QgLq6/" rel="nofollow" target="_blank">Beat Triplebyte's coding quiz. Get offers from top companies. Skip resumes &amp; recruiters.</a><span class="ethical-callout"><small><em><a href="https://docs.readthedocs.io/en/latest/ethical-advertising.html" rel="nofollow" target="_blank">ads served ethically</a></em></small></span></div></div></div></div><!-- Inserted RTD Footer -->
+
+<div class="injected">
+
+  
+  <div class="rst-versions rst-badge" data-toggle="rst-versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book">&nbsp;</span>
+      v: latest
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      
+
+      
+      
+      
+      
+
+      
+      
+      <dl>
+        <dt>Downloads</dt>
+        
+        <dd><a href="https://packaging.python.org/_/downloads/en/latest/pdf/">PDF</a></dd>
+        
+        <dd><a href="https://packaging.python.org/_/downloads/en/latest/htmlzip/">HTML</a></dd>
+        
+        <dd><a href="https://packaging.python.org/_/downloads/en/latest/epub/">Epub</a></dd>
+        
+      </dl>
+      
+      
+
+      
+      <dl>
+        
+        <!-- These are kept as relative links for internal installs that are http -->
+        <dt>On Read the Docs</dt>
+        <dd>
+          <a href="https://readthedocs.org/projects/python-packaging-user-guide/">Project Home</a>
+        </dd>
+        <dd>
+          <a href="https://readthedocs.org/projects/python-packaging-user-guide/builds/">Builds</a>
+        </dd>
+        <dd>
+          <a href="https://readthedocs.org/projects/python-packaging-user-guide/downloads/">Downloads</a>
+        </dd>
+      </dl>
+      
+
+      
+
+      
+      <dl>
+        <dt>On GitHub</dt>
+        <dd>
+          <a href="https://github.com/pypa/packaging.python.org/blob/master/source/tutorials/packaging-projects.rst">View</a>
+        </dd>
+        
+      </dl>
+      
+      
+
+      
+      <dl>
+        <dt>Search</dt>
+        <dd>
+          <div style="padding: 6px;">
+            
+            <form id="flyout-search-form" class="wy-form" target="_blank" action="https://readthedocs.org/projects/python-packaging-user-guide/search/" method="get">
+              <input type="text" name="q" placeholder="Search docs">
+              </form>
+          </div>
+        </dd>
+      </dl>
+      
+
+      
+      
+
+      <hr>
+      
+        <small>
+          <span>Hosted by <a href="https://readthedocs.org/">Read the Docs</a></span>
+          <span> · </span>
+          <a href="https://docs.readthedocs.io/page/privacy-policy.html">Privacy Policy</a>
+        </small>
+      
+
+      
+    </div>
+  </div>
+  
+
+</div>
+</body></html>
